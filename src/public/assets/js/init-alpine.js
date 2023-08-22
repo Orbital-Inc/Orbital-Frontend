@@ -76,6 +76,10 @@ function data() {
     toggleMiscPagesMenu() {
       this.isMiscPagesMenuOpen = !this.isMiscPagesMenuOpen;
     },
+    isNavbarOpen: false,
+    toggleNavbar() {
+      this.isNavbarOpen = !this.isNavbarOpen;
+    },
 
     // Modal
     isModalOpen: false,
