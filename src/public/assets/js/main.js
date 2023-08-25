@@ -215,7 +215,7 @@ async function LoginAsync() {
   }
   localStorage.setItem("token", "test");
   let isDev = window.location.pathname.includes("/src/public/");
-  let redirectURL = isDev ? "/src/public/login.html" : "/login.html";
+  let redirectURL = isDev ? "/src/public/dashboard/index.html" : "/dashboard";
   window.location.href = redirectURL;
   return;
   //send request to server
