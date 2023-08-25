@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: debian-latest
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
@@ -21,4 +21,4 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           script: |
-            rsync -avz ${{ github.workspace }}/src/public bot@chicago-webserver-node-1.orbitalsolutions.ca:/var/www/html/orbitalsolutions.ca/public/
+            rsync -avz ${{ github.workspace }}/src/public bot@69.171.209.8:/var/www/html/orbitalsolutions.ca/public/
