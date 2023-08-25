@@ -24,7 +24,9 @@
 ::after {
   --tw-content: "";
 }
-
+.pb-10 {
+  padding-bottom: 2.5rem /* 40px */;
+}
 /*
 1. Use a consistent sensible line-height in all browsers.
 2. Prevent adjustments of font size after orientation changes in iOS.
@@ -723,8 +725,75 @@ select {
   --tw-backdrop-sepia: ;
 }
 
+.z-10000 {
+  z-index: 10000;
+}
+
+.loader {
+  z-index: 2;
+  height: 40px;
+  width: 40px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  background: linear-gradient(90deg, #3b82f6 0%, #a855f7 100%);
+  animation: jump 3s forwards ease-in-out;
+  transition: opacity 0.3s ease;
+}
+
+.loader-text {
+  top: 55vh;
+  transform: translateY(-50%);
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+.shadow {
+  position: absolute;
+  top: 50vh;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  height: 5px;
+  width: 60px;
+  filter: blur(5px);
+  border-radius: 40%;
+}
+.dot {
+  font-size: 2.5rem;
+  animation: fadeIn 1s ease-in-out infinite;
+}
 .container {
   width: 100%;
+}
+
+.fade-out {
+  opacity: 0;
+  visibility: hidden; /* Add this */
+  transition: opacity 1s ease-out, visibility 1s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes jump {
+  0%,
+  50%,
+  100% {
+    transform: translateY(10px);
+    height: 35px;
+  }
+  25%,
+  75% {
+    transform: translateY(-40px);
+    height: 40px;
+  }
 }
 
 @media (min-width: 640px) {
@@ -949,6 +1018,13 @@ select {
   top: 0px;
 }
 
+.top-3 {
+  top: 0.75rem;
+}
+.top-10 {
+  top: 2.5rem;
+}
+
 .right-0 {
   right: 0px;
 }
@@ -963,6 +1039,10 @@ select {
 
 .z-30 {
   z-index: 30;
+}
+
+.z-50 {
+  z-index: 50;
 }
 
 .col-span-3 {
@@ -1026,6 +1106,10 @@ select {
 
 .ml-4 {
   margin-left: 1rem;
+}
+
+.mt-12 {
+  margin-top: 3rem /* 48px */;
 }
 
 .mt-2 {
@@ -1495,6 +1579,39 @@ select {
   border-color: rgb(147 51 234 / var(--tw-border-opacity));
 }
 
+.bg-gradient-to-r {
+  background-image: linear-gradient(to right, var(--tw-gradient-stops));
+}
+
+.from-yellow-400 {
+  --tw-gradient-from: #facc15 var(--tw-gradient-from-position);
+  --tw-gradient-from-position: ;
+  --tw-gradient-to: rgb(250 204 21 / 0) var(--tw-gradient-from-position);
+  --tw-gradient-to-position: ;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-purple-600 {
+  --tw-gradient-to: #9333ea var(--tw-gradient-to-position);
+  --tw-gradient-to-position: ;
+}
+
+.rounded-full {
+  border-radius: 9999px;
+}
+
+.text-5xl {
+  font-size: 3rem /* 48px */;
+  line-height: 1;
+}
+
+.gap-2 {
+  gap: 0.5rem /* 8px */;
+}
+.text-yellow-500 {
+  --tw-text-opacity: 1;
+  color: rgb(234 179 8 / var(--tw-text-opacity));
+}
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
@@ -1955,6 +2072,17 @@ select {
 
 .ring-opacity-5 {
   --tw-ring-opacity: 0.05;
+}
+
+.rounded-xl {
+  border-radius: 0.75rem /* 12px */;
+}
+
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast)
+    var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate)
+    var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .filter {

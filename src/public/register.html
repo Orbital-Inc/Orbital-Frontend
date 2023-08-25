@@ -15,6 +15,13 @@
     />
     <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
 
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
@@ -22,221 +29,413 @@
     <script src="./assets/js/init-alpine.js"></script>
     <!-- reCAPTCHA script -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <script src="./assets/js/main.js"></script>
   </head>
 
   <body>
-    <!-- Navbar -->
-    <nav
-      x-show="isNavbarOpen || !isNavbarOpen"
-      :class="{'h-auto': isNavbarOpen, 'h-16': !isNavbarOpen}"
-      class="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-height duration-300"
-    >
-      <div class="container mx-auto px-6 py-3">
-        <div class="flex items-center justify-between">
-          <div class="flex items-center text-gray-700 dark:text-gray-200">
-            <!-- Adjusted logo size -->
-            <img
-              src="./assets/img/banner-nebula-mods.png"
-              alt="Orbital Logo"
-              class="w-20 md:w-24 lg:w-28 mr-3"
-            />
-            <div class="hidden md:flex items-center space-x-6">
-              <!-- Desktop Menu Items -->
-              <a
-                href="./index.html"
-                class="text-gray-700 dark:text-gray-200 hover:text-gray-500"
-                >Home</a
-              >
-              <a
-                href="./login.html"
-                class="text-gray-700 dark:text-gray-200 hover:text-gray-500"
-                >Dashboard</a
-              >
-              <a
-                href="./tos.html"
-                class="text-gray-700 dark:text-gray-200 hover:text-gray-500"
-                >TOS</a
-              >
-            </div>
-          </div>
-          <div class="flex flex-row">
-            <!-- Theme toggler -->
-            <button
-              class="rounded-md focus:outline-none focus:ring"
-              @click="toggleTheme"
-              aria-label="Toggle color mode"
-            >
-              <template x-if="!dark">
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-                  ></path>
-                </svg>
-              </template>
-              <template x-if="dark">
-                <svg
-                  class="w-5 h-5"
-                  aria-hidden="true"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                    clip-rule="evenodd"
-                  ></path>
-                </svg>
-              </template>
-            </button>
-            <div class="pl-2 md:hidden flex items-center">
-              <!-- Mobile Menu Button -->
-              <button
-                @click="isNavbarOpen = !isNavbarOpen"
-                class="text-gray-700 dark:text-gray-200 focus:outline-none"
-              >
-                <svg
-                  class="w-6 h-6"
-                  fill="none"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path d="M4 6h16M4 12h16m-7 6h7"></path>
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div
-          x-show="isNavbarOpen"
-          class="mt-3 md:hidden bg-white dark:bg-gray-800 w-full"
-        >
-          <a
-            href="./index.html"
-            class="block py-2 pr-4 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-            >Home</a
-          >
-          <a
-            href="./login.html"
-            class="block py-2 pr-4 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-            >Login</a
-          >
-          <a
-            href="./tos.html"
-            class="block py-2 pr-4 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-            >TOS</a
-          >
-        </div>
-      </div>
-    </nav>
-
-    <!--Register-->
     <div
-      class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900 pt-20"
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
     >
       <div
-        class="flex-1 h-full max-w-2xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
+        class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
+      ></div>
+      <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
+    </div>
+
+    <div class="bg-gray-50 dark:bg-gray-900 main-content blur-md">
+      <!-- Navbar -->
+      <nav
+        x-show="isNavbarOpen || !isNavbarOpen"
+        :class="{'h-auto': isNavbarOpen, 'h-16': !isNavbarOpen}"
+        class="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-height duration-300"
       >
-        <div class="flex flex-col overflow-y-auto md:flex-row">
-          <div class="flex items-center justify-center p-6 sm:p-12 w-full">
-            <div class="w-full">
-              <h1
-                class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200"
-              >
-                Register
-              </h1>
-
-              <!-- Input[ype="email"] -->
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Username</span>
-                <input
-                  name="username"
-                  type="text"
-                  class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400"
-                  placeholder="john"
-                />
-              </label>
-
-              <!-- Input[ype="email"] -->
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400"
-                  >Email address</span
-                >
-                <input
-                  name="email"
-                  type="email"
-                  class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400"
-                  placeholder="john@example.com"
-                />
-              </label>
-
-              <!-- Input[ype="text"] -->
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Password</span>
-                <input
-                  type="password"
-                  class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400"
-                  placeholder="***************"
-                />
-              </label>
-
-              <!-- Input[ype="text"] -->
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400"
-                  >Confirm Password</span
-                >
-                <input
-                  type="password"
-                  class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400"
-                  placeholder="***************"
-                />
-              </label>
-
-              <div class="block mt-4 text-sm">
-                <label class="inline-flex items-center dark:text-gray-400">
-                  <input
-                    type="checkbox"
-                    class="text-primary-600 border-gray-300 rounded shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-gray"
-                    checked=""
-                  />
-                  <span class="ml-2"
-                    >I agree to the
-                    <span class="underline">privacy policy</span></span
-                  >
-                </label>
-              </div>
-              <!-- You should use a button here, as the anchor is only used for the example  -->
-              <button
-                data-sitekey="6Ld-p8QnAAAAAK_dyLU4JIPvmWQDL84vgJ7dG6gb"
-                data-callback="onSubmit"
-                data-action="submit"
-                class="g-recaptcha block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary-600 border border-transparent rounded-lg active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring"
-                onclick=""
-              >
-                Register account
-              </button>
-
-              <hr class="my-8" />
-
-              <p class="mt-4">
+        <div class="container mx-auto px-6 py-3">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center text-gray-700 dark:text-gray-200">
+              <!-- Adjusted logo size -->
+              <img
+                src="./assets/img/banner-nebula-mods.png"
+                alt="Orbital Logo"
+                class="w-20 md:w-24 lg:w-28 mr-3"
+              />
+              <div class="hidden md:flex items-center space-x-6">
+                <!-- Desktop Menu Items -->
                 <a
-                  class="text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline"
-                  href="./login.html"
-                  >Already have an account? Login</a
+                  href="./index.html"
+                  class="text-gray-700 dark:text-gray-200 hover:text-gray-500"
+                  >Home</a
                 >
-              </p>
+                <a
+                  href="./login.html"
+                  class="text-gray-700 dark:text-gray-200 hover:text-gray-500"
+                  >Dashboard</a
+                >
+                <a
+                  href="./tos.html"
+                  class="text-gray-700 dark:text-gray-200 hover:text-gray-500"
+                  >TOS</a
+                >
+              </div>
+            </div>
+            <div class="flex flex-row">
+              <!-- Theme toggler -->
+              <button
+                class="rounded-md focus:outline-none focus:ring"
+                @click="toggleTheme"
+                aria-label="Toggle color mode"
+              >
+                <template x-if="!dark">
+                  <svg
+                    class="w-5 h-5"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                    ></path>
+                  </svg>
+                </template>
+                <template x-if="dark">
+                  <svg
+                    class="w-5 h-5 text-yellow-500"
+                    aria-hidden="true"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
+                      clip-rule="evenodd"
+                    ></path>
+                  </svg>
+                </template>
+              </button>
+              <div class="pl-2 md:hidden flex items-center">
+                <!-- Mobile Menu Button -->
+                <button
+                  @click="isNavbarOpen = !isNavbarOpen"
+                  class="text-gray-700 dark:text-gray-200 focus:outline-none"
+                >
+                  <svg
+                    class="w-6 h-6"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path d="M4 6h16M4 12h16m-7 6h7"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Mobile Menu -->
+          <div
+            x-show="isNavbarOpen"
+            class="mt-3 md:hidden bg-white dark:bg-gray-800 w-full"
+          >
+            <a
+              href="./index.html"
+              class="block py-2 pr-4 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >Home</a
+            >
+            <a
+              href="./login.html"
+              class="block py-2 pr-4 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >Login</a
+            >
+            <a
+              href="./tos.html"
+              class="block py-2 pr-4 text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >TOS</a
+            >
+          </div>
+        </div>
+      </nav>
+
+      <!-- Modal backdrop. This what you want to place close to the closing body tag -->
+      <div
+        x-show="isModalOpen"
+        x-transition:enter="transition ease-out duration-150"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-30 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
+      >
+        <!-- Modal -->
+        <div
+          x-show="isModalOpen"
+          x-transition:enter="transition ease-out duration-150"
+          x-transition:enter-start="opacity-0 transform translate-y-1/2"
+          x-transition:enter-end="opacity-100"
+          x-transition:leave="transition ease-in duration-150"
+          x-transition:leave-start="opacity-100"
+          x-transition:leave-end="opacity-0  transform translate-y-1/2"
+          @click.away="closeModal"
+          @keydown.escape="closeModal"
+          class="w-full px-3 py-4 overflow-hidden bg-white rounded-t-lg dark:bg-gray-800 sm:rounded-lg sm:m-4 sm:max-w-xl"
+          role="dialog"
+          id="modal"
+        >
+          <!-- Remove header if you don't want a close icon. Use modal body to place modal tile. -->
+          <header class="flex justify-end">
+            <button
+              class="inline-flex items-center justify-center w-6 h-6 text-gray-400 transition-colors duration-150 rounded dark:hover:text-gray-200 hover: hover:text-gray-700"
+              aria-label="close"
+              @click="closeModal"
+            >
+              <svg
+                class="w-4 h-4"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                role="img"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
+          </header>
+          <!-- Modal body -->
+
+          <div class="mt-4 mb-6">
+            <!-- Modal title -->
+            <p
+              class="mb-2 text-lg font-semibold text-gray-700 dark:text-gray-300"
+            >
+              Modal header
+            </p>
+            <!-- Modal description -->
+            <p class="text-sm text-gray-700 dark:text-gray-400">
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nostrum
+              et eligendi repudiandae voluptatem tempore!
+            </p>
+          </div>
+
+          <footer
+            class="flex flex-col items-center justify-end px-3 py-3 -mx-3 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-800"
+          >
+            <button
+              id="modalCancelButton"
+              @click="closeModal"
+              class="w-full px-5 py-3 text-sm font-medium leading-5 text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:ring-gray"
+            >
+              Cancel
+            </button>
+
+            <button
+              id="modalAcceptButton"
+              @click="closeModal"
+              class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 sm:w-auto sm:px-4 sm:py-2 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring"
+            >
+              Accept
+            </button>
+          </footer>
+        </div>
+      </div>
+      <!-- End of modal backdrop -->
+
+      <!-- You need focus-trap.js to make the modal accessible -->
+      <script src="./assets/js/focus-trap.js" defer></script>
+
+      <!--Register-->
+      <div
+        class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900 pt-20"
+      >
+        <div
+          class="flex-1 h-full max-w-2xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
+        >
+          <div class="flex flex-col overflow-y-auto md:flex-row">
+            <div class="flex items-center justify-center p-6 sm:p-12 w-full">
+              <div class="w-full">
+                <h1
+                  class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200"
+                >
+                  Register
+                </h1>
+
+                <form id="registerForm">
+                  <!-- Input[ype="email"] -->
+                  <label class="block mt-4 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400"
+                      >Username</span
+                    >
+                    <div class="relative text-gray-500">
+                      <input
+                        name="username"
+                        id="username"
+                        autocomplete="username"
+                        type="text"
+                        class="block w-full pl-10 mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                        placeholder="john"
+                      />
+                      <i
+                        class="absolute top-3 flex items-center ml-3 text-lg pointer-events-none fas fa-user"
+                      ></i>
+                      <span
+                        id="username-helper"
+                        class="hidden text-xs text-red-600 dark:text-red-400"
+                        >Your username is invalid</span
+                      >
+                    </div>
+                  </label>
+
+                  <!-- Input[ype="email"] -->
+                  <label class="block mt-4 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400"
+                      >Email address</span
+                    >
+                    <div class="relative text-gray-500">
+                      <input
+                        name="email"
+                        id="email"
+                        autocomplete="email"
+                        type="email"
+                        class="block w-full pl-10 mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                        placeholder="john@example.com"
+                      />
+                      <i
+                        class="absolute top-3 flex items-center ml-3 text-lg pointer-events-none far fa-envelope"
+                      ></i>
+                      <span
+                        id="email-helper"
+                        class="hidden text-xs text-red-600 dark:text-red-400"
+                        >Your email is invalid</span
+                      >
+                    </div>
+                  </label>
+
+                  <!-- Input[ype="text"] -->
+                  <label class="block mt-4 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400"
+                      >Password</span
+                    >
+                    <div class="relative text-gray-500">
+                      <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        autocomplete="current-password"
+                        class="block w-full pl-10 mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                        placeholder="***************"
+                      />
+                      <i
+                        class="absolute top-3 flex items-center ml-3 text-lg pointer-events-none fas fa-lock"
+                      ></i>
+                      <span
+                        id="password-helper"
+                        class="hidden text-xs text-red-600 dark:text-red-400"
+                        >Your password is invalid</span
+                      >
+                    </div>
+                  </label>
+
+                  <!-- Input[ype="text"] -->
+                  <label class="block mt-4 text-sm">
+                    <span class="text-gray-700 dark:text-gray-400"
+                      >Confirm Password</span
+                    >
+                    <div class="relative text-gray-500">
+                      <input
+                        type="password"
+                        name="confirm-password"
+                        id="confirm-password"
+                        autocomplete="current-password"
+                        class="block w-full pl-10 mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                        placeholder="***************"
+                      />
+                      <i
+                        class="absolute top-3 flex items-center ml-3 text-lg pointer-events-none fas fa-lock"
+                      ></i>
+                      <span
+                        id="password-confirm-helper"
+                        class="hidden text-xs text-red-600 dark:text-red-400"
+                        >Your password doesn't match</span
+                      >
+                    </div>
+                  </label>
+
+                  <div class="block mt-4 text-sm">
+                    <label class="inline-flex items-center dark:text-gray-400">
+                      <div class="relative text-gray-500">
+                        <input
+                          name="tos"
+                          id="tos"
+                          type="checkbox"
+                          class="text-primary-600 border-gray-300 rounded shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-gray"
+                          checked=""
+                        />
+                        <span class="ml-2"
+                          >I agree to the
+                          <span class="underline">terms of service</span></span
+                        >
+                        <br />
+                        <span
+                          id="tos-helper"
+                          class="hidden text-xs text-red-600 dark:text-red-400"
+                          >Please accept the TOS</span
+                        >
+                      </div>
+                    </label>
+                  </div>
+                  <!-- You should use a button here, as the anchor is only used for the example  -->
+                  <button
+                    data-sitekey="6Ld-p8QnAAAAAK_dyLU4JIPvmWQDL84vgJ7dG6gb"
+                    data-callback="RegisterAsync"
+                    data-action="submit"
+                    class="g-recaptcha block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary-600 border border-transparent rounded-lg active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring"
+                  >
+                    Register account
+                  </button>
+                </form>
+                <hr class="my-8" />
+
+                <p class="mt-4">
+                  <a
+                    class="text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline"
+                    href="./login.html"
+                    >Already have an account? Login</a
+                  >
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      let pageLoaded = false;
+
+      // Function to fade out the loader and then hide it
+      function fadeOutLoader() {
+        const loaderContainer = document.querySelector(".fixed.inset-0");
+        if (pageLoaded) {
+          loaderContainer.classList.add("fade-out");
+          // Wait for the transition to complete, then hide the loader
+          setTimeout(() => {
+            loaderContainer.style.display = "none";
+          }, 1000); // 1s matches the transition duration in the CSS
+        } else {
+          // If the page isn't loaded yet, check again in 500ms
+          setTimeout(fadeOutLoader, 500);
+        }
+      }
+
+      // Set a timeout to check if we should fade out the loader after 3 seconds
+      setTimeout(fadeOutLoader, 3000);
+
+      // Mark the page as loaded when it's fully loaded
+      window.onload = function () {
+        pageLoaded = true;
+      };
+    </script>
   </body>
 </html>

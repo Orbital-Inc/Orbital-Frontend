@@ -1,18 +1,15 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
+const defaultTheme = require("tailwindcss/defaultTheme");
+const colors = require("tailwindcss/colors");
 
 module.exports = {
-  content: [
-    './public/**/*.html',
-    './public/**/*.{js,jsx}'
-  ],
-  darkMode: 'class',
+  content: ["./public/**/*.html", "./public/**/*.{js,jsx}"],
+  darkMode: "class",
   theme: {
     customForms: (theme) => ({
       default: {
-        'input, textarea': {
-          '&::placeholder': {
-            color: theme('colors.gray.400'),
+        "input, textarea": {
+          "&::placeholder": {
+            color: theme("colors.gray.400"),
           },
         },
       },
@@ -22,24 +19,27 @@ module.exports = {
         primary: colors.purple,
         teal: colors.teal,
         orange: colors.orange,
-        coolGray: colors.coolGray
+        coolGray: colors.coolGray,
       },
       maxHeight: {
-        xl: '36rem',
+        xl: "36rem",
       },
       fontFamily: {
-        sans: ['Inter', ...defaultTheme.fontFamily.sans],
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
       boxShadow: {
-        xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
-        outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
-      }
+        xs: "0 0 0 1px rgba(0, 0, 0, 0.05)",
+        outline: "0 0 0 3px rgba(66, 153, 225, 0.5)",
+      },
+      animation: {
+        fadeInDelay: "fadeIn 1s ease-in-out 3s forwards",
+      },
     },
   },
   plugins: [
-    require('@tailwindcss/forms'),
-    require('@tailwindcss/forms')({
-      strategy: 'class',
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/forms")({
+      strategy: "class",
     }),
   ],
-}
+};
