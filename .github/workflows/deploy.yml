@@ -20,5 +20,5 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT }}
-          local_path: /src/public
+          local_path: ${{ github.workspace }}/src/public
           remote_path: /var/www/html/orbitalsolutions.ca/public/
