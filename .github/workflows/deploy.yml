@@ -20,5 +20,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT }}
-          script: |
-            rsync -avz ${{ github.workspace }}/src/public bot@69.171.209.8:/var/www/html/orbitalsolutions.ca/public/
+          script: rsync -avz ${{ github.workspace }}/src/public bot@69.171.209.8:/var/www/html/orbitalsolutions.ca/public/
+          known_hosts: |
+            |1|YPPufIuyNXhVl9eIDlWFI4ZbMoU=|4bZLZZKecQmDq4USyQllhFyTxXw= ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBB4Qr60+F3a7i/PUuLKNjjHOA9qGMhA85cdlAcB0nBnOSy78V9eQyihSR7MpJmgRQgRKRaHqe28O0AV/Fx1leXI=
