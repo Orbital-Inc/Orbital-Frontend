@@ -13,6 +13,17 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Check and list contents of public folder
+        run: |
+          if [ -d "${{ github.workspace }}/src/public" ]; then
+            echo "Public folder exists. Listing its contents:"
+            ls -alh "${{ github.workspace }}/src/public"
+          else
+            echo "Public folder does not exist. Exiting."
+            ls -alh "${{ github.workspace }}"
+            exit 1
+          fi
+
       - name: Deploy specific folder to server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
