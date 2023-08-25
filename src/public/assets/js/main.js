@@ -214,7 +214,9 @@ async function LoginAsync() {
     return;
   }
   localStorage.setItem("token", "test");
-  window.location.href = "/src/public/dashboard";
+  let isDev = window.location.pathname.includes("/src/public/");
+  let redirectURL = isDev ? "/src/public/login.html" : "/login.html";
+  window.location.href = redirectURL;
   return;
   //send request to server
   const XHR = new XMLHttpRequest();
