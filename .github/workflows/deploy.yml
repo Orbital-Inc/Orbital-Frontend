@@ -19,6 +19,6 @@ jobs:
           server: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
           ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
-          local_path: ${{ github.workspace }}/src/public/*
-          remote_path: /var/www/html/orbitalsolutions.ca/public
+          local_path: "./src/public/*"
+          remote_path: "/var/www/html/orbitalsolutions.ca/public"
           args: "-o ConnectTimeout=5"
