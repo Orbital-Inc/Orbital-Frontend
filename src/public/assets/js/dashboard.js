@@ -31,7 +31,9 @@ function checkTokenAndRedirect() {
     document.querySelector(".fixed.inset-0 p.text-gray-700").textContent =
       "Redirecting...";
     setTimeout(() => {
-      window.location.href = "/src/public/login.html";
+      let isDev = window.location.pathname.includes("/src/public/");
+      let redirectURL = isDev ? "/src/public/login.html" : "/login.html";
+      window.location.href = redirectURL;
     }, 1000);
     return;
   }
@@ -39,5 +41,8 @@ function checkTokenAndRedirect() {
 
 async function LogOutAsync() {
   localStorage.removeItem("token");
-  window.location.href = "/src/public/login.html";
+
+  let isDev = window.location.pathname.includes("/src/public/");
+  let redirectURL = isDev ? "/src/public/login.html" : "/login.html";
+  window.location.href = redirectURL;
 }
