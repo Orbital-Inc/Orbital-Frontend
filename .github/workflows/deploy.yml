@@ -21,4 +21,4 @@ jobs:
           key: ${{ secrets.SERVER_SSH_KEY }}
           port: ${{ secrets.SERVER_PORT }}
           fingerprint: ${{ secrets.SERVER_FINGERPRINT }}
-          script: rsync -avz ${{ github.workspace }}/src/public bot@69.171.209.8:/var/www/html/orbitalsolutions.ca/public/
+          script: rsync -avz -e "ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null" /home/runner/work/orbitalsolutions-frontend/orbitalsolutions-frontend/src/public ***@***:/var/www/html/orbitalsolutions.ca/public/
