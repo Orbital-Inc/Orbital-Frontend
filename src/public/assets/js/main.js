@@ -1,7 +1,7 @@
 let pageLoaded = false;
 
-// Set a timeout to check if we should fade out the loader after 3 seconds
-setTimeout(fadeOutLoader, 3000);
+// Set a timeout to check if we should fade out the loader after 1 second
+setTimeout(fadeOutLoader, 1000);
 
 // Mark the page as loaded when it's fully loaded
 window.onload = function () {
