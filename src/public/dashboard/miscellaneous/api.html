@@ -3,36 +3,36 @@
   <head>
     <!--#region Meta Data-->
     <meta charset="UTF-8" />
-    <meta property="og:title" content="Dashboard | Orbital, Inc." />
-    <meta property="og:url" content="https://orbitalsolutions.ca/dashboard" />
+    <meta property="og:title" content="API | Nebula Mods, Inc." />
+    <meta property="og:url" content="https://nebulamods.ca/dashboard/api" />
     <meta
       property="og:site_name"
-      content="Login to view all the services Orbital, Inc. has to offer for free!"
+      content="Sign in to view all the api services Nebula Mods, Inc. has to offer for free!"
     />
     <meta
       name="og:description"
-      content="Login to view all the services Orbital, Inc. has to offer for free!"
+      content="Sign in to view all the api services Nebula Mods, Inc. has to offer for free!"
     />
     <meta
       name="og:image"
-      content="https://orbitalsolutions.ca/content/images/logo-nebulamods.png"
+      content="https://nebulamods.ca/content/images/logo-nebulamods.png"
     />
     <meta name="twitter:card" content="summary_small_image" />
     <meta
       property="twitter:url"
-      content="https://orbitalsolutions.ca/dashboard"
+      content="https://nebulamods.ca/dashboard/api"
     />
     <meta
       name="twitter:image"
-      content="https://orbitalsolutions.ca/content/images/logo-nebulamods.png"
+      content="https://nebulamods.ca/content/images/logo-nebulamods.png"
     />
     <meta
       name="twitter:description"
-      content="Login to view all the services Orbital, Inc. has to offer for free!"
+      content="Sign in to view all the api services Nebula Mods, Inc. has to offer for free!"
     />
     <meta
       name="description"
-      content="Login to view all the services Orbital, Inc. has to offer for free!"
+      content="Sign in to view all the api services Nebula Mods, Inc. has to offer for free!"
     />
     <meta name="theme-color" content="#3d68ff" />
     <meta http-equiv="pragma" content="no-cache" />
@@ -44,53 +44,52 @@
     <link
       rel="apple-touch-icon"
       sizes="128x128"
-      href="https://orbitalsolutions.ca/content/images/logo-128.png"
+      href="https://nebulamods.ca/content/images/logo-128.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://orbitalsolutions.ca/content/images/logo-32.png"
+      href="https://nebulamods.ca/content/images/logo-32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="https://orbitalsolutions.ca/content/images/logo-16.png"
+      href="https://nebulamods.ca/content/images/logo-16.png"
     />
     <link
       rel="mask-icon"
-      href="https://orbitalsolutions.ca/content/images/logo-nebulamods.png"
+      href="https://nebulamods.ca/content/images/logo-nebulamods.png"
       color="#5bbad5"
     />
     <meta name="msapplication-TileColor" content="#00aba9" />
     <link
       rel="shortcut icon"
       type="image/x-icon"
-      href="https://orbitalsolutions.ca/favicon.ico"
+      href="https://nebulamods.ca/favicon.ico"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Dashboard | Orbital</title>
+    <title>API | Orbital</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+    <link rel="stylesheet" href="../../assets/css/tailwind.output.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
       integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
       crossorigin="anonymous"
     />
-    <script src="../assets/js/loadComponents.js" defer></script>
-
+    <script src="../../assets/js/loadComponents.js" defer></script>
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
-    <script src="../assets/js/init-alpine.js"></script>
+    <script src="../../assets/js/init-alpine.js"></script>
   </head>
 
   <body>
@@ -102,9 +101,8 @@
       ></div>
       <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
     </div>
-
     <div
-      class="flex h-screen bg-gray-50 dark:bg-gray-900 main-content blur-md"
+      class="flex h-screen bg-gray-50 dark:bg-gray-900"
       :class="{ 'overflow-hidden': isSideMenuOpen }"
     >
       <div id="sidebarDesktopContainer"></div>
@@ -126,7 +124,7 @@
       <div id="modalContainer"></div>
 
       <!-- You need focus-trap.js to make the modal accessible -->
-      <script src="../assets/js/focus-trap.js" defer></script>
+      <script src="../../assets/js/focus-trap.js" defer></script>
 
       <!--Body-->
       <div class="flex flex-col flex-1 w-full">
@@ -139,7 +137,7 @@
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
             >
-              Dashboard
+              API
             </h2>
             <!-- Cards -->
             <div class="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
@@ -160,12 +158,12 @@
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Total Detected Attacks
+                    Total clients
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    6969
+                    6389
                   </p>
                 </div>
               </div>
@@ -188,12 +186,12 @@
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Total Blocked Traffic
+                    Account balance
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    6969Tbs
+                    $ 46,760.89
                   </p>
                 </div>
               </div>
@@ -214,12 +212,12 @@
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Total Inbound Traffic
+                    New sales
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    69Tbs
+                    376
                   </p>
                 </div>
               </div>
@@ -242,45 +240,20 @@
                   <p
                     class="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400"
                   >
-                    Outbound Traffic
+                    Pending contacts
                   </p>
                   <p
                     class="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    5Tbs
+                    35
                   </p>
                 </div>
-              </div>
-            </div>
-
-            <!-- Cards with title -->
-            <h4
-              class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
-            >
-              News
-            </h4>
-            <div class="grid gap-6 mb-8 md:grid-cols-2">
-              <div
-                class="hidden min-w-0 p-4 bg-white rounded-lg ring-1 ring-black ring-opacity-5 dark:bg-gray-800"
-              >
-                <h4 class="mb-4 font-semibold text-gray-600 dark:text-gray-300">
-                  More News
-                </h4>
-                <p class="text-gray-600 dark:text-gray-400">
-                  Thus is the latest news from the Orbital, Inc.
-                </p>
-              </div>
-              <div
-                class="min-w-0 p-4 text-white rounded-lg ring-1 ring-black ring-opacity-5 bg-primary-600"
-              >
-                <h4 class="mb-4 font-semibold">More News</h4>
-                <p>This is the latest news from the Orbital, Inc.</p>
               </div>
             </div>
           </div>
         </main>
       </div>
     </div>
-    <script src="../assets/js/dashboard.js"></script>
+    <script src="../../assets/js/dashboard.js"></script>
   </body>
 </html>

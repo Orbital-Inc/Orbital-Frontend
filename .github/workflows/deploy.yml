@@ -3,10 +3,12 @@ name: Deploy Specific Folder to Server
 on:
   push:
     branches:
-      - main
+      - prod
+      - qa
 
 jobs:
-  deploy:
+  deploy-prod:
+    if: github.ref == 'refs/heads/prod'
     runs-on: ubuntu-latest
 
     steps:
@@ -21,4 +23,22 @@ jobs:
           ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
           local_path: "./src/public/*"
           remote_path: "/var/www/html/orbitalsolutions.ca/public"
+          args: "-o ConnectTimeout=5"
+
+  deploy-qa:
+    if: github.ref == 'refs/heads/qa'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy specific folder to server
+        uses: wlixcc/SFTP-Deploy-Action@v1.0
+        with:
+          server: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }}
+          ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
+          local_path: "./src/public/*"
+          remote_path: "/var/www/html/orbitalsolutions.ca/beta"
           args: "-o ConnectTimeout=5"

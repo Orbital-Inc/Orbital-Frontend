@@ -80,7 +80,7 @@ function data() {
     toggleNavbar() {
       this.isNavbarOpen = !this.isNavbarOpen;
     },
-
+    cardView: true,
     // Modal
     isModalOpen: false,
     trapCleanup: null,

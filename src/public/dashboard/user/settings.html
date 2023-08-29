@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html x-data="data()" lang="en">
+  <head>
+    <!--#region Meta Data-->
+    <meta charset="UTF-8" />
+    <meta property="og:title" content="Settings | Nebula Mods, Inc." />
+    <meta
+      property="og:url"
+      content="https://nebulamods.ca/dashboard/settings"
+    />
+    <meta property="og:site_name" content="Sign in to view all settings." />
+    <meta name="og:description" content="Sign in to view all settings." />
+    <meta
+      name="og:image"
+      content="https://nebulamods.ca/content/images/logo-nebulamods.png"
+    />
+    <meta name="twitter:card" content="summary_small_image" />
+    <meta
+      property="twitter:url"
+      content="https://nebulamods.ca/dashboard/settings"
+    />
+    <meta
+      name="twitter:image"
+      content="https://nebulamods.ca/content/images/logo-nebulamods.png"
+    />
+    <meta name="twitter:description" content="Sign in to view all settings." />
+    <meta name="description" content="Sign in to view all settings." />
+    <meta name="theme-color" content="#3d68ff" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="window-target" content="_top" />
+    <meta name="keywords" content="" />
+    <meta name="author" content="Nebula" />
+    <meta property="og:type" content="website" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="apple-touch-icon"
+      sizes="128x128"
+      href="https://nebulamods.ca/content/images/logo-128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://nebulamods.ca/content/images/logo-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://nebulamods.ca/content/images/logo-16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://nebulamods.ca/content/images/logo-nebulamods.png"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://nebulamods.ca/favicon.ico"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Settings | Orbital</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/tailwind.output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <script src="../../assets/js/loadComponents.js" defer></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="../../assets/js/init-alpine.js"></script>
+  </head>
+
+  <body>
+    <div
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
+    >
+      <div
+        class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
+      ></div>
+      <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
+    </div>
+    <div
+      class="flex h-screen bg-gray-50 dark:bg-gray-900"
+      :class="{ 'overflow-hidden': isSideMenuOpen }"
+    >
+      <div id="sidebarDesktopContainer"></div>
+
+      <!-- Backdrop -->
+      <div
+        x-show="isSideMenuOpen"
+        x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
+      ></div>
+
+      <div id="sidebarMobileContainer"></div>
+
+      <div id="modalContainer"></div>
+
+      <!-- You need focus-trap.js to make the modal accessible -->
+      <script src="../../assets/js/focus-trap.js" defer></script>
+
+      <!--Body-->
+      <div class="flex flex-col flex-1 w-full">
+        <!--Header-->
+        <div id="headerContainer"></div>
+        <!--Content-->
+        <main class="h-full overflow-y-auto">
+          <div class="container grid px-3 mx-auto">
+            <!--Content Header-->
+            <h2
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            >
+              Settings
+            </h2>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../../assets/js/dashboard.js"></script>
+  </body>
+</html>

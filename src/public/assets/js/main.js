@@ -1,3 +1,27 @@
+let pageLoaded = false;
+
+// Set a timeout to check if we should fade out the loader after 3 seconds
+setTimeout(fadeOutLoader, 3000);
+
+// Mark the page as loaded when it's fully loaded
+window.onload = function () {
+  pageLoaded = true;
+};
+
+function fadeOutLoader() {
+  const loaderContainer = document.querySelector(".fixed.inset-0");
+  if (pageLoaded) {
+    loaderContainer.classList.add("fade-out");
+    // Wait for the transition to complete, then hide the loader
+    setTimeout(() => {
+      loaderContainer.style.display = "none";
+    }, 1000); // 1s matches the transition duration in the CSS
+  } else {
+    // If the page isn't loaded yet, check again in 500ms
+    setTimeout(fadeOutLoader, 500);
+  }
+}
+
 async function RegisterAsync() {
   //get the form values
   let form = document.getElementById("registerForm");

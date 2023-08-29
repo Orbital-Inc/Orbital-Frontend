@@ -16,14 +16,14 @@ function fadeOutLoader() {
 }
 // Set a timeout to check the token and potentially redirect after 1 second
 checkTokenAndRedirect();
-
-// Set a timeout to fade out the loader after 3 seconds
-setTimeout(fadeOutLoader, 3000);
+adjustImagePaths();
+// Set a timeout to fade out the loader after 1 second
+setTimeout(fadeOutLoader, 1000);
 
 // Mark the page as loaded when it's fully loaded
-window.onload = function () {
+window.addEventListener("load", function () {
   pageLoaded = true;
-};
+});
 
 function checkTokenAndRedirect() {
   const token = localStorage.getItem("token");
@@ -41,8 +41,28 @@ function checkTokenAndRedirect() {
 
 async function LogOutAsync() {
   localStorage.removeItem("token");
-
   let isDev = window.location.pathname.includes("/src/public/");
   let redirectURL = isDev ? "/src/public/login.html" : "/login.html";
   window.location.href = redirectURL;
+}
+
+function adjustImagePaths() {
+  // Check if we're in the development environment
+  let isDev = window.location.pathname.includes("/src/public/");
+
+  // Get all image elements on the page
+  let images = document.querySelectorAll("img");
+
+  // Iterate over each image and adjust its src attribute
+  images.forEach((img) => {
+    if (isDev) {
+      // If we're in the development environment, prepend "/src/public/" to the src if it's not already there
+      if (!img.src.includes("/src/public/")) {
+        img.src = "/src/public/" + img.getAttribute("src");
+      }
+    } else {
+      // If we're not in the development environment, remove "/src/public/" from the src if it's there
+      img.src = img.src.replace("/src/public/", "/");
+    }
+  });
 }
