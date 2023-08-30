@@ -1,12 +1,19 @@
 let pageLoaded = false;
 
-// Set a timeout to check if we should fade out the loader after 1 second
 setTimeout(fadeOutLoader, 1000);
 
-// Mark the page as loaded when it's fully loaded
-window.onload = function () {
+window.addEventListener("load", function () {
   pageLoaded = true;
-};
+});
+
+window.addEventListener("DOMContentLoaded", function () {
+  this.window
+    .loadComponent("main-header", "headerContainer")
+    .then(() => this.window.loadComponent("modal", "modalContainer"))
+    .catch((error) => {
+      console.error("Error in loading components:", error);
+    });
+});
 
 function fadeOutLoader() {
   const loaderContainer = document.querySelector(".fixed.inset-0");
