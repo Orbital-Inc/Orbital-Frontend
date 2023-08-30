@@ -24,13 +24,11 @@ function initAlpine() {
 function adjustLinkPaths() {
   // Check if we're in the development environment
   let isDev = window.location.pathname.includes("/src/public/");
-
   // Get all image elements on the page
   let images = document.querySelectorAll("img");
-
   images.forEach((img) => {
     if (!isDev) {
-      if (!img.src.includes("/src/public/")) {
+      if (img.src.includes("/src/public/")) {
         img.src = img.src.replace("/src/public/", "/");
       }
     }
@@ -38,7 +36,6 @@ function adjustLinkPaths() {
 
   // Get all image elements on the page
   let as = document.querySelectorAll("a");
-
   as.forEach((a) => {
     if (!isDev) {
       if (a.href.includes("/src/public/")) {
@@ -47,5 +44,6 @@ function adjustLinkPaths() {
     }
   });
 }
-window.addEventListener("load", adjustLinkPaths);
+
+window.adjustLinkPaths = adjustLinkPaths;
 window.loadComponent = loadComponent;

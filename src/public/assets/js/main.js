@@ -10,6 +10,7 @@ window.addEventListener("DOMContentLoaded", function () {
   this.window
     .loadComponent("main-header", "headerContainer")
     .then(() => this.window.loadComponent("modal", "modalContainer"))
+    .then(() => this.window.adjustLinkPaths())
     .catch((error) => {
       console.error("Error in loading components:", error);
     });

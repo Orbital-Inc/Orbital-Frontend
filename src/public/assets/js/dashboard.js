@@ -17,6 +17,7 @@ window.addEventListener("DOMContentLoaded", function () {
       window.loadComponent("sidebar-mobile", "sidebarMobileContainer")
     )
     .then(() => window.loadComponent("modal", "modalContainer"))
+    .then(() => this.window.adjustLinkPaths())
     .then(() => userViewPermissions())
     .then(() => ActivePage())
     .catch((error) => {
