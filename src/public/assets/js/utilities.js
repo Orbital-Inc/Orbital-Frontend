@@ -28,35 +28,24 @@ function adjustLinkPaths() {
   // Get all image elements on the page
   let images = document.querySelectorAll("img");
 
-  // Iterate over each image and adjust its src attribute
   images.forEach((img) => {
-    if (isDev) {
-      // If we're in the development environment, prepend "/src/public/" to the src if it's not already there
+    if (!isDev) {
       if (!img.src.includes("/src/public/")) {
-        img.src = "/src/public/" + img.getAttribute("src");
+        img.src = img.src.replace("/src/public/", "/");
       }
-    } else {
-      // If we're not in the development environment, remove "/src/public/" from the src if it's there
-      img.src = img.src.replace("/src/public/", "/");
     }
   });
 
   // Get all image elements on the page
   let as = document.querySelectorAll("a");
 
-  // Iterate over each image and adjust its src attribute
   as.forEach((a) => {
-    if (isDev) {
-      // If we're in the development environment, prepend "/src/public/" to the src if it's not already there
-      if (!a.href.includes("/src/public/")) {
-        a.href = "/src/public/" + a.getAttribute("href");
+    if (!isDev) {
+      if (a.href.includes("/src/public/")) {
+        a.href = a.href.replace("/src/public/", "/");
       }
-    } else {
-      // If we're not in the development environment, remove "/src/public/" from the src if it's there
-      a.href = a.href.replace("/src/public/", "/");
     }
   });
 }
-
+window.addEventListener("load", adjustLinkPaths);
 window.loadComponent = loadComponent;
-adjustLinkPaths();
