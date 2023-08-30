@@ -5,6 +5,8 @@ on:
     branches:
       - prod
       - qa
+  pull_request_review:
+    types: [submitted]
 
 jobs:
   deploy-prod:
@@ -41,4 +43,22 @@ jobs:
           ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
           local_path: "./src/public/*"
           remote_path: "/var/www/html/orbitalsolutions.ca/beta"
+          args: "-o ConnectTimeout=5"
+
+  deploy-dev:
+    if: (github.ref == 'refs/heads/dev') || (github.event_name == 'pull_request' && github.event.pull_request.base.ref == 'dev') || (github.event_name == 'pull_request_review' && github.event.review.state == 'approved' && github.event.pull_request.base.ref == 'dev')
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy specific folder to dev server
+        uses: wlixcc/SFTP-Deploy-Action@v1.0
+        with:
+          server: ${{ secrets.DEV_SERVER_HOST }}
+          username: ${{ secrets.DEV_SERVER_USER }}
+          ssh_private_key: ${{ secrets.DEV_SERVER_SSH_KEY }}
+          local_path: "./src/public/*"
+          remote_path: "/var/www/html/orbitalsolutions.ca/dev"
           args: "-o ConnectTimeout=5"
