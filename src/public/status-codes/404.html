@@ -7,13 +7,13 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
     />
 
-    <title>Home | Orbital</title>
+    <title>404 | Orbital</title>
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="./assets/css/tailwind.output.css" />
+    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
 
     <link
       rel="stylesheet"
@@ -25,8 +25,8 @@
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
-    <script src="./assets/js/init-alpine.js"></script>
-    <script src="./assets/js/utilities.js"></script>
+    <script src="../assets/js/init-alpine.js"></script>
+    <script src="../assets/js/utilities.js"></script>
   </head>
 
   <body>
@@ -45,35 +45,35 @@
       <div id="modalContainer"></div>
 
       <!-- You need focus-trap.js to make the modal accessible -->
-      <script src="./assets/js/focus-trap.js" defer></script>
+      <script src="../assets/js/focus-trap.js" defer></script>
 
-      <!--Home-->
+      <!--404-->
       <div
-        class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900 pt-20"
+        class="min-h-screen p-6 bg-gray-50 dark:bg-gray-900 pt-20 flex items-center justify-center"
       >
-        <!--Discord-->
-        <div class="w-full flex items-center justify-center">
-          <iframe
-            src="https://discord.com/widget?id=993960228913676308&theme=dark"
-            width="350"
-            height="500"
-            allowtransparency="true"
-            frameborder="0"
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-            x-show="dark"
-          ></iframe>
-          <iframe
-            src="https://discord.com/widget?id=993960228913676308&theme=light"
-            width="350"
-            height="500"
-            allowtransparency="true"
-            frameborder="0"
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-            x-show="!dark"
-          ></iframe>
-        </div>
+        <main class="h-full pb-16 overflow-y-auto">
+          <div class="container flex flex-col items-center px-3 mx-auto">
+            <svg
+              class="w-12 h-12 mt-8 text-primary-200"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <h1 class="text-6xl font-semibold text-gray-700 dark:text-gray-200">
+              404
+            </h1>
+            <p class="text-gray-700 dark:text-gray-300">
+              Page not found. Check the address.
+            </p>
+          </div>
+        </main>
       </div>
     </div>
-    <script src="./assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
   </body>
 </html>
