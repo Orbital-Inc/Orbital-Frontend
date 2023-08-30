@@ -1,4 +1,4 @@
-window.onload = function () {
+window.addEventListener("load", function () {
   if (window.location.href.indexOf("token") > -1) {
     //check if token is a valid token
     const token = window.location.href.split("=")[1];
@@ -11,7 +11,7 @@ window.onload = function () {
         .classList.add("hidden");
     }
   }
-};
+});
 
 function checkToken(token) {
   //check token length if it is not 16 characters or longer it is not a valid token

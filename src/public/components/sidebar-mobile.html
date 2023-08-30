@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<body>
+  <aside
+    class="fixed inset-y-0 z-20 flex-shrink-0 w-64 mt-16 overflow-y-auto bg-white dark:bg-gray-800 md:hidden"
+    x-show="isSideMenuOpen"
+    x-transition:enter="transition ease-in-out duration-150"
+    x-transition:enter-start="opacity-0 transform -translate-x-20"
+    x-transition:enter-end="opacity-100"
+    x-transition:leave="transition ease-in-out duration-150"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0 transform -translate-x-20"
+    @click.away="closeSideMenu"
+    @keydown.escape="closeSideMenu"
+  >
+    <div class="py-4 text-gray-500 dark:text-gray-400">
+      <div class="flex items-center">
+        <img
+          src="/src/public/assets/img/banner-nebula-mods.png"
+          height="15%"
+          width="15%"
+          class="ml-6"
+        />
+        <!--Header Title-->
+        <a
+          class="ml-2 text-lg font-bold text-gray-800 dark:text-gray-200"
+          href="#"
+        >
+          Orbital
+        </a>
+      </div>
+      <ul class="mt-6">
+        <!--Dashboard/Home-->
+        <li class="relative px-3 py-3" id="dashboard-page-mobile">
+          <a
+            class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+            href="/src/public/dashboard/index.html"
+          >
+            <i class="fas fa-home w-6 h-6 mt-2"></i>
+            <span class="ml-4">Dashboard</span>
+          </a>
+        </li>
+      </ul>
+      <ul>
+        <!--Servers Dropdown-->
+        <li class="hidden relative px-3 py-3" id="servers-dropdown-mobile">
+          <button
+            class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+            @click="toggleServersPagesMenu"
+            aria-haspopup="true"
+          >
+            <span class="inline-flex items-center">
+              <i class="fas fa-server w-6 h-6 mt-2"></i>
+              <span class="ml-4">Servers</span>
+            </span>
+            <svg
+              class="w-4 h-4"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <!--dropdown-mobile-->
+          <div x-show="isServersPagesMenuOpen">
+            <ul
+              x-transition:enter="transition-all ease-in-out duration-300"
+              x-transition:enter-start="opacity-25 max-h-0"
+              x-transition:enter-end="opacity-100 max-h-xl"
+              x-transition:leave="transition-all ease-in-out duration-300"
+              x-transition:leave-start="opacity-100 max-h-xl"
+              x-transition:leave-end="opacity-0 max-h-0"
+              class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+              aria-label="submenu"
+            >
+              <!--Virtual Machines-->
+              <li class="relative px-3 py-3" id="vms-page-mobile">
+                <a
+                  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                  href="/src/public/dashboard/servers/vms.html"
+                >
+                  <i class="fas fa-desktop w-6 h-6 mt-2"></i>
+                  <span class="ml-4">Virtual Machines</span>
+                </a>
+              </li>
+              <!--Dedicated Machines-->
+              <li class="relative px-3 py-3" id="dedis-page-mobile">
+                <a
+                  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                  href="/src/public/dashboard/servers/dedis.html"
+                >
+                  <i class="fas fa-hdd w-6 h-6 mt-2"></i>
+                  <span class="ml-4">Dedicated Machines</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!--Network Dropdown-->
+        <li class="hidden relative px-3 py-3" id="network-dropdown-mobile">
+          <button
+            class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+            @click="toggleNetworkPagesMenu"
+            aria-haspopup="true"
+          >
+            <span class="inline-flex items-center">
+              <i class="fas fa-globe w-6 h-6 mt-2"></i>
+              <span class="ml-4">Network</span>
+            </span>
+            <svg
+              class="w-4 h-4"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <!--dropdown-mobile-->
+          <div x-show="isNetworkPagesMenuOpen">
+            <ul
+              x-transition:enter="transition-all ease-in-out duration-300"
+              x-transition:enter-start="opacity-25 max-h-0"
+              x-transition:enter-end="opacity-100 max-h-xl"
+              x-transition:leave="transition-all ease-in-out duration-300"
+              x-transition:leave-start="opacity-100 max-h-xl"
+              x-transition:leave-end="opacity-0 max-h-0"
+              class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+              aria-label="submenu"
+            >
+              <!--Firewall-->
+              <li class="relative px-3 py-3" id="firewall-page-mobile">
+                <a
+                  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                  href="/src/public/dashboard/network/firewall.html"
+                >
+                  <i class="fas fa-shield-alt w-6 h-6 mt-2"></i>
+                  <span class="ml-4">Firewall</span>
+                </a>
+              </li>
+              <!--Statistics-->
+              <li
+                class="relative px-3 py-3"
+                id="network-statistics-page-mobile"
+              >
+                <a
+                  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                  href="/src/public/dashboard/network/statistics.html"
+                >
+                  <i class="fas fa-info w-6 h-6 mt-2"></i>
+                  <span class="ml-4">Statistics</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!--Misc. Dropdown-->
+        <li
+          class="hidden relative px-3 py-3"
+          id="miscellaneous-dropdown-mobile"
+        >
+          <button
+            class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+            @click="toggleMiscPagesMenu"
+            aria-haspopup="true"
+          >
+            <span class="inline-flex items-center">
+              <i class="fas fa-infinity w-6 h-6 mt-2"></i>
+              <span class="ml-4">Miscellaneous</span>
+            </span>
+            <svg
+              class="w-4 h-4"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <!--dropdown-mobile-->
+          <div x-show="isMiscPagesMenuOpen">
+            <ul
+              x-transition:enter="transition-all ease-in-out duration-300"
+              x-transition:enter-start="opacity-25 max-h-0"
+              x-transition:enter-end="opacity-100 max-h-xl"
+              x-transition:leave="transition-all ease-in-out duration-300"
+              x-transition:leave-start="opacity-100 max-h-xl"
+              x-transition:leave-end="opacity-0 max-h-0"
+              class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+              aria-label="submenu"
+            >
+              <!--API-->
+              <li class="relative px-3 py-3" id="api-page-mobile">
+                <a
+                  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                  href="/src/public/dashboard//miscellaneous/api.html"
+                >
+                  <i class="fas fa-network-wired w-6 h-6 mt-2"></i>
+                  <span class="ml-4">API</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <!--Support-->
+        <li class="relative px-3 py-3" id="support-page-mobile">
+          <a
+            class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+            href="/src/public/dashboard/support/support.html"
+          >
+            <i class="fas fa-headset w-6 h-6 mt-2"></i>
+            <span class="ml-4">Support</span>
+          </a>
+        </li>
+        <!--Admin Settings Dropdown-->
+        <li class="hidden relative px-3 py-3" id="admin-dropdown-mobile">
+          <button
+            class="inline-flex items-center justify-between w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+            @click="toggleAdminPagesMenu"
+            aria-haspopup="true"
+          >
+            <span class="inline-flex items-center">
+              <i class="fas fa-toolbox w-6 h-6 mt-2"></i>
+              <span class="ml-4">Admin Settings</span>
+            </span>
+            <svg
+              class="w-4 h-4"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+          <!--dropdown-mobile-->
+          <div x-show="isAdminPagesMenuOpen">
+            <ul
+              x-transition:enter="transition-all ease-in-out duration-300"
+              x-transition:enter-start="opacity-25 max-h-0"
+              x-transition:enter-end="opacity-100 max-h-xl"
+              x-transition:leave="transition-all ease-in-out duration-300"
+              x-transition:leave-start="opacity-100 max-h-xl"
+              x-transition:leave-end="opacity-0 max-h-0"
+              class="p-2 mt-2 space-y-2 overflow-hidden text-sm font-medium text-gray-500 rounded-md shadow-inner bg-gray-50 dark:text-gray-400 dark:bg-gray-900"
+              aria-label="submenu"
+            >
+              <!--Users-->
+              <li class="relative px-3 py-3" id="admin-users-page-mobile">
+                <a
+                  class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                  href="/src/public/dashboard/admin/users.html"
+                >
+                  <i class="fas fa-users-cog w-6 h-6 mt-2"></i>
+                  <span class="ml-4">Users</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <!--Log Out Button-->
+      <div class="px-3 my-6">
+        <button
+          class="flex w-full items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 border border-transparent rounded-lg bg-primary-600 active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring"
+          onclick="LogOutAsync();"
+          type="button"
+        >
+          Log Out
+          <!-- <span class="ml-2" aria-hidden="true">+</span> -->
+        </button>
+      </div>
+    </div>
+  </aside>
+</body>
