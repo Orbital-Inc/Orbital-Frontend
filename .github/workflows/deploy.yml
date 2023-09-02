@@ -6,7 +6,7 @@ on:
       - prod
       - qa
   pull_request:
-    types: [ready_for_review]
+    types: [opened]
 
 jobs:
   deploy-prod:
