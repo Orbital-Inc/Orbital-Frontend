@@ -21,9 +21,9 @@ jobs:
       - name: Deploy specific folder to first prod server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ secrets.FIRST_SERVER_HOST }}
+          server: ${{ secrets.CHICAGO_SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
+          ssh_private_key: ${{ secrets.CHICAGO_SSH_KEY }}
           local_path: "./src/public/*"
           remote_path: "/var/www/html/first-prod-server/public"
           args: "-o ConnectTimeout=5"
@@ -32,9 +32,9 @@ jobs:
       - name: Deploy specific folder to second prod server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ secrets.SECOND_SERVER_HOST }}
+          server: ${{ secrets.TORONTO_SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
+          ssh_private_key: ${{ secrets.TORONTO_SSH_KEY }}
           local_path: "./src/public/*"
           remote_path: "/var/www/html/second-prod-server/public"
           args: "-o ConnectTimeout=5"
@@ -50,9 +50,9 @@ jobs:
       - name: Deploy specific folder to server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ secrets.FIRST_SERVER_HOST }}
+          server: ${{ secrets.CHICAGO_SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
+          ssh_private_key: ${{ secrets.CHICAGO_SSH_KEY }}
           local_path: "./src/public/*"
           remote_path: "/var/www/html/orbitalsolutions.ca/beta"
           args: "-o ConnectTimeout=5"
@@ -60,9 +60,9 @@ jobs:
       - name: Deploy specific folder to server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ secrets.SECOND_SERVER_HOST }}
+          server: ${{ secrets.TORONTO_SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
+          ssh_private_key: ${{ secrets.TORONTO_SSH_KEY }}
           local_path: "./src/public/*"
           remote_path: "/var/www/html/orbitalsolutions.ca/beta"
           args: "-o ConnectTimeout=5"
@@ -78,9 +78,9 @@ jobs:
       - name: Deploy specific folder to first dev server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ secrets.FIRST_SERVER_HOST }}
+          server: ${{ secrets.CHICAGO_SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
+          ssh_private_key: ${{ secrets.CHICAGO_SSH_KEY }}
           local_path: "./src/public/*"
           remote_path: "/var/www/html/orbitalsolutions.ca/dev"
           args: "-o ConnectTimeout=5"
@@ -88,9 +88,9 @@ jobs:
       - name: Deploy specific folder to second dev server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ secrets.SECOND_SERVER_HOST }}
+          server: ${{ secrets.TORONTO_SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          ssh_private_key: ${{ secrets.SERVER_SSH_KEY }}
+          ssh_private_key: ${{ secrets.TORONTO_SSH_KEY }}
           local_path: "./src/public/*"
           remote_path: "/var/www/html/orbitalsolutions.ca/dev"
           args: "-o ConnectTimeout=5"
