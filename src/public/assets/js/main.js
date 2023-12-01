@@ -1,5 +1,5 @@
 let pageLoaded = false;
-
+let Url = "http://localhost:1337";
 setTimeout(fadeOutLoader, 1000);
 
 window.addEventListener("load", function () {
@@ -132,7 +132,7 @@ async function RegisterAsync() {
   const XHR = new XMLHttpRequest();
   // Define what happens on successful data submission
   XHR.addEventListener("load", function (event) {
-    if (XHR.status != 200) {
+    if (XHR.status != 201) {
       // Change the modal header
       document.querySelector("#modal p.text-lg").textContent = "Error";
 
@@ -144,7 +144,7 @@ async function RegisterAsync() {
       if (!document.documentElement.__x.$data.isModalOpen) {
         document.documentElement.__x.$data.openModal();
       }
-      console.log(event.responseText);
+      console.log(event);
       return;
     }
     // Change the modal header
@@ -173,22 +173,21 @@ async function RegisterAsync() {
     if (!document.documentElement.__x.$data.isModalOpen) {
       document.documentElement.__x.$data.openModal();
     }
-    console.log(event.responseText);
+    console.log(event);
     return;
   });
   // Set up our request
-  XHR.open("PUT", "https://api.orbitalsolutions.ca/v1/users");
+  XHR.open("PUT", `${Url}/v1/users`);
   // Add the required headers
   XHR.setRequestHeader("Content-Type", "application/json");
   // Send our FormData object; HTTP headers are set automatically
-  XHR.send(
-    JSON.stringify({
-      email: email,
-      password: password,
-      username: username,
-      captcha: captcha,
-    })
-  );
+  let data = JSON.stringify({
+    emailAddress: email,
+    password: btoa(password),
+    username: username,
+    captchaCode: captcha,
+  });
+  XHR.send(data);
 }
 
 async function LoginAsync() {
@@ -245,11 +244,11 @@ async function LoginAsync() {
   if (errors) {
     return;
   }
-  localStorage.setItem("token", "test");
-  let isDev = window.location.pathname.includes("/src/public/");
-  let redirectURL = isDev ? "/src/public/dashboard/index.html" : "/dashboard";
-  window.location.href = redirectURL;
-  return;
+  // localStorage.setItem("token", "test");
+  // let isDev = window.location.pathname.includes("/src/public/");
+  // let redirectURL = isDev ? "/src/public/dashboard/index.html" : "/dashboard";
+  // window.location.href = redirectURL;
+  // return;
   //send request to server
   const XHR = new XMLHttpRequest();
   // Define what happens on successful data submission
@@ -270,7 +269,10 @@ async function LoginAsync() {
       return;
     }
     //set the token cookie
-
+    const json = JSON.parse(event.responseText);
+    localStorage.setItem("token", json.token);
+    console.log(json);
+    localStorage.setItem("json", event.responseText);
     // Change the modal header
     document.querySelector("#modal p.text-lg").textContent = "Success";
     // Change the modal description
@@ -301,15 +303,15 @@ async function LoginAsync() {
     return;
   });
   // Set up our request
-  XHR.open("POST", "https://api.orbitalsolutions.ca/v1/users/token");
+  XHR.open("POST", `${Url}/v1/users/tokens`);
   // Add the required headers
   XHR.setRequestHeader("Content-Type", "application/json");
   // Send our FormData object; HTTP headers are set automatically
   XHR.send(
     JSON.stringify({
       user: user,
-      password: password,
-      captcha: captcha,
+      password: btoa(password),
+      captchaCode: captcha,
     })
   );
 }
@@ -397,7 +399,7 @@ async function SendForgotPasswordEmailAsync() {
     return;
   });
   // Set up our request
-  XHR.open("POST", "https://api.orbitalsolutions.ca/v1/users/password/reset");
+  XHR.open("POST", `${Url}/v1/users/password/reset`);
   // Add the required headers
   XHR.setRequestHeader("Content-Type", "application/json");
   // Send our FormData object; HTTP headers are set automatically
@@ -493,7 +495,7 @@ async function ResetPasswordAsync() {
       document.documentElement.__x.$data.openModal();
     }
     setTimeout(() => {
-      window.location.href = "https://orbitalsolutions.ca/login";
+      window.location.href = `${Url}/login`;
     }, 5000);
     return;
   });
@@ -513,7 +515,7 @@ async function ResetPasswordAsync() {
     return;
   });
   // Set up our request
-  XHR.open("POST", "https://api.orbitalsolutions.ca/v1/users/password/reset");
+  XHR.open("POST", `${Url}/v1/users/password/reset`);
   // Add the required headers
   XHR.setRequestHeader("Content-Type", "application/json");
   // Send our FormData object; HTTP headers are set automatically
