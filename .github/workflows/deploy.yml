@@ -25,7 +25,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           ssh_private_key: ${{ secrets.CHICAGO_SSH_KEY }}
           local_path: "./src/public/*"
-          remote_path: "/var/www/html/first-prod-server/public"
+          remote_path: "/var/www/html/orbitalsolutions.ca/public"
           args: "-o ConnectTimeout=5"
 
       # Deployment to the second prod server
@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           ssh_private_key: ${{ secrets.TORONTO_SSH_KEY }}
           local_path: "./src/public/*"
-          remote_path: "/var/www/html/second-prod-server/public"
+          remote_path: "/var/www/html/orbitalsolutions.ca/public"
           args: "-o ConnectTimeout=5"
 
   deploy-qa:
