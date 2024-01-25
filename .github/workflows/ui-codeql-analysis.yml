@@ -25,7 +25,7 @@ jobs:
 
       # CSS Validation
       - name: Install Stylelint
-        run: npm install stylelint stylelint-config-standard
+        run: npm install stylelint stylelint-config-tailwindcss
 
       - name: Run Stylelint
         run: npx stylelint "./src/public/assets/css/*.css"
