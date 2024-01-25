@@ -1,0 +1,41 @@
+name: UI Deployment
+
+on:
+  push:
+    branches: [dev, "release/OrbitalSolutions-*"]
+  workflow_dispatch:
+
+jobs:
+  deploy_dev:
+    name: Deploy Dev
+    uses: ./.github/workflows/ui-deploy.yml
+    with:
+      ENVIRONMENT: dev
+      SERVER_HOST: ${{ secrets.CHICAGO_SERVER_HOST }}
+      SSH_PRIVATE_KEY: ${{ secrets.CHICAGO_SSH_KEY }}
+      USERNAME: ${{ secrets.SERVER_USER }}
+      DEPLOY_PATH: "/var/www/html/dev.orbitalsolutions.ca/public"
+    secrets: inherit
+
+  deploy_qa:
+    name: Deploy QA
+    uses: ./.github/workflows/ui-deploy.yml
+    with:
+      ENVIRONMENT: qa
+      SERVER_HOST: ${{ secrets.CHICAGO_SERVER_HOST }}
+      SSH_PRIVATE_KEY: ${{ secrets.CHICAGO_SSH_KEY }}
+      USERNAME: ${{ secrets.SERVER_USER }}
+      DEPLOY_PATH: "/var/www/html/beta.orbitalsolutions.ca/public"
+    secrets: inherit
+
+  deploy_prod:
+    name: Deploy Prod
+    needs: deploy_qa
+    uses: ./.github/workflows/ui-deploy.yml
+    with:
+      ENVIRONMENT: prod
+      SERVER_HOST: ${{ secrets.CHICAGO_SERVER_HOST }}
+      SSH_PRIVATE_KEY: ${{ secrets.CHICAGO_SSH_KEY }}
+      USERNAME: ${{ secrets.SERVER_USER }}
+      DEPLOY_PATH: "/var/www/html/orbitalsolutions.ca/public"
+    secrets: inherit
