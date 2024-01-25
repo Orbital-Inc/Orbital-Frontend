@@ -1,0 +1,40 @@
+name: "Full Stack Code Analysis"
+
+on:
+  pull_request:
+    branches: [dev, main]
+
+jobs:
+  full-stack-analysis:
+    name: Full Stack Analysis
+    runs-on: ubuntu-latest
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # HTML Validation
+      # - name: Validate HTML
+      #   run: |
+      #     wget https://validator.w3.org/nu
+      #     java -jar vnu.jar ./src/public/**/*.html
+
+      # CSS Validation
+      - name: Install Stylelint
+        run: npm install stylelint stylelint-config-tailwindcss
+
+      - name: Run Stylelint
+        run: npx stylelint "./src/public/assets/css/*.css"
+
+      # JavaScript CodeQL Analysis
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v2
+        with:
+          languages: "javascript"
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v2

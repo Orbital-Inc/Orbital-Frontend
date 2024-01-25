@@ -1,0 +1,6 @@
+{
+  "extends": "stylelint-config-tailwindcss",
+  "rules": {
+    "color-no-invalid-hex": true
+  }
+}
