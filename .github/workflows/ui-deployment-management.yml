@@ -15,7 +15,6 @@ jobs:
       SSH_PRIVATE_KEY: ${{ secrets.CHICAGO_SSH_KEY }}
       USERNAME: ${{ secrets.SERVER_USER }}
       DEPLOY_PATH: "/var/www/html/dev.orbitalsolutions.ca/public"
-    secrets: inherit
 
   deploy_qa:
     name: Deploy QA
@@ -26,7 +25,6 @@ jobs:
       SSH_PRIVATE_KEY: ${{ secrets.CHICAGO_SSH_KEY }}
       USERNAME: ${{ secrets.SERVER_USER }}
       DEPLOY_PATH: "/var/www/html/beta.orbitalsolutions.ca/public"
-    secrets: inherit
 
   deploy_prod:
     name: Deploy Prod
@@ -38,4 +36,3 @@ jobs:
       SSH_PRIVATE_KEY: ${{ secrets.CHICAGO_SSH_KEY }}
       USERNAME: ${{ secrets.SERVER_USER }}
       DEPLOY_PATH: "/var/www/html/orbitalsolutions.ca/public"
-    secrets: inherit
