@@ -33,9 +33,9 @@ jobs:
       - name: Deploy to Server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ secrets.SERVER_HOST }}
+          server: ${{ secrets.CHICAGO_SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }} # Assuming you have a 'SERVER_USER' secret set up
-          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          ssh_private_key: ${{ secrets.CHICAGO_SSH_KEY }}
           local_path: "./src/public/*" # Update this path according to your project structure
           remote_path: ${{ inputs.DEPLOY_PATH }}
           args: "-o ConnectTimeout=5"
