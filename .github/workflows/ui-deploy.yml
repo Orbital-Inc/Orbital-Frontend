@@ -2,30 +2,23 @@ name: "UI Deploy"
 
 on:
   workflow_call:
-  workflow_dispatch:
     inputs:
       ENVIRONMENT:
         description: "Deployment environment (e.g., dev, qa, prod)"
-        required: true
-        type: choice
-        options:
-          - dev
-          - qa
-          - prod
-      SERVER_HOST:
-        description: "Server hostname"
-        required: true
-        type: string
-      SSH_PRIVATE_KEY:
-        description: "SSH Private Key for Server"
         required: true
         type: string
       DEPLOY_PATH:
         description: "Deployment Path on Server"
         required: true
         type: string
-      USERNAME:
-        description: "Username for Server"
+  workflow_dispatch:
+    inputs:
+      ENVIRONMENT:
+        description: "Deployment environment (e.g., dev, qa, prod)"
+        required: true
+        type: string
+      DEPLOY_PATH:
+        description: "Deployment Path on Server"
         required: true
         type: string
 
@@ -40,9 +33,9 @@ jobs:
       - name: Deploy to Server
         uses: wlixcc/SFTP-Deploy-Action@v1.0
         with:
-          server: ${{ inputs.SERVER_HOST }}
-          username: ${{ inputs.USERNAME }} # Assuming you have a 'SERVER_USER' secret set up
-          ssh_private_key: ${{ inputs.SSH_PRIVATE_KEY }}
+          server: ${{ secrets.SERVER_HOST }}
+          username: ${{ secrets.SERVER_USER }} # Assuming you have a 'SERVER_USER' secret set up
+          ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
           local_path: "./src/public/*" # Update this path according to your project structure
           remote_path: ${{ inputs.DEPLOY_PATH }}
           args: "-o ConnectTimeout=5"
