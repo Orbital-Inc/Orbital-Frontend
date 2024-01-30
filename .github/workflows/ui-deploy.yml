@@ -21,6 +21,18 @@ on:
         description: "Deployment Path on Server"
         required: true
         type: string
+      SERVER_PASSWORD:
+        description: "Server Password"
+        required: true
+        type: string
+      SERVER_HOST:
+        description: "Server Host"
+        required: true
+        type: string
+      SERVER_SSH_KEY:
+        description: "Server SSH Key"
+        required: true
+        type: string
 
 jobs:
   deploy:
@@ -31,11 +43,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Deploy to Server
-        uses: wlixcc/SFTP-Deploy-Action@v1.0
+        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
         with:
-          server: ${{ secrets.CHICAGO_SERVER_HOST }}
+          server: ${{ inputs.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }} # Assuming you have a 'SERVER_USER' secret set up
-          ssh_private_key: ${{ secrets.CHICAGO_SSH_KEY }}
+          ssh_private_key: ${{ inputs.SERVER_SSH_KEY }}
           local_path: "./src/public/*" # Update this path according to your project structure
           remote_path: ${{ inputs.DEPLOY_PATH }}
-          args: "-o ConnectTimeout=5"
+          sftpArgs: "-o ConnectTimeout=5"
+          port: 22
+          password: ${{ inputs.SERVER_PASSWORD }}
