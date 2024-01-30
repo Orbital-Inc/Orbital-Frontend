@@ -8,22 +8,58 @@ on:
 jobs:
   deploy_dev:
     name: Deploy Dev
-    uses: ./.github/workflows/ui-deploy.yml
-    with:
-      ENVIRONMENT: dev
-      DEPLOY_PATH: "/var/www/html/dev.orbitalsolutions.ca/public"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.CHICAGO_SSH_KEY }}
+      SERVER_HOST: ${{ secrets.CHICAGO_SERVER_HOST }}
+      SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+    steps:
+      - name: Call reusable workflow for Dev
+        uses: ./.github/workflows/ui-deploy.yml
+        with:
+          ENVIRONMENT: dev
+          DEPLOY_PATH: "/var/www/html/dev.orbitalsolutions.ca/public"
+          SSH_PRIVATE_KEY: ${{ env.SSH_PRIVATE_KEY }}
+          SERVER_HOST: ${{ env.SERVER_HOST }}
+          SERVER_PASSWORD: ${{ env.SERVER_PASSWORD }}
 
   deploy_qa:
     name: Deploy QA
-    uses: ./.github/workflows/ui-deploy.yml
-    with:
-      ENVIRONMENT: qa
-      DEPLOY_PATH: "/var/www/html/beta.orbitalsolutions.ca/public"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.CHICAGO_SSH_KEY }}
+      SERVER_HOST: ${{ secrets.CHICAGO_SERVER_HOST }}
+      SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+    steps:
+      - name: Call reusable workflow for QA
+        uses: ./.github/workflows/ui-deploy.yml
+        with:
+          ENVIRONMENT: dev
+          DEPLOY_PATH: "/var/www/html/beta.orbitalsolutions.ca/public"
+          SSH_PRIVATE_KEY: ${{ env.SSH_PRIVATE_KEY }}
+          SERVER_HOST: ${{ env.SERVER_HOST }}
+          SERVER_PASSWORD: ${{ env.SERVER_PASSWORD }}
 
   deploy_prod:
     name: Deploy Prod
     needs: deploy_qa
-    uses: ./.github/workflows/ui-deploy.yml
-    with:
-      ENVIRONMENT: prod
-      DEPLOY_PATH: "/var/www/html/orbitalsolutions.ca/public"
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      SSH_PRIVATE_KEY: ${{ secrets.CHICAGO_SSH_KEY }}
+      SERVER_HOST: ${{ secrets.CHICAGO_SERVER_HOST }}
+      SERVER_PASSWORD: ${{ secrets.SERVER_PASSWORD }}
+    steps:
+      - name: Call reusable workflow for Prod
+        uses: ./.github/workflows/ui-deploy.yml
+        with:
+          ENVIRONMENT: dev
+          DEPLOY_PATH: "/var/www/html/orbitalsolutions.ca/public"
+          SSH_PRIVATE_KEY: ${{ env.SSH_PRIVATE_KEY }}
+          SERVER_HOST: ${{ env.SERVER_HOST }}
+          SERVER_PASSWORD: ${{ env.SERVER_PASSWORD }}
