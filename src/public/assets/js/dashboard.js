@@ -108,7 +108,7 @@ function ActivePage() {
     "vms.html": ["vms-page-desktop", "vms-page-mobile"],
     "dedis.html": ["dedis-page-desktop", "dedis-page-mobile"],
     "firewall.html": ["firewall-page-desktop", "firewall-page-mobile"],
-    "network/statistics.html": [
+    "statistics.html": [
       "network-statistics-page-desktop",
       "network-statistics-page-mobile",
     ],
@@ -152,4 +152,24 @@ function ActivePage() {
       );
     });
   }
+}
+
+function refreshToken() {
+  const token = localStorage.getItem("token");
+  const XHR = new XMLHttpRequest();
+  XHR.addEventListener("load", function (event) {
+    if (XHR.status != 200) {
+      console.log(event.responseText);
+      return;
+    }
+    const response = JSON.parse(event.responseText);
+    localStorage.setItem("token", response.token);
+  });
+  XHR.addEventListener("error", function (event) {
+    console.log(event.responseText);
+    return;
+  });
+  XHR.open("GET", `${Url}/v1/refresh`);
+  XHR.setRequestHeader("Authorization", `Bearer ${token}`);
+  XHR.send();
 }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html x-data="data()" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+
+    <title>404 | Orbital</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="../assets/js/init-alpine.js"></script>
+    <script src="../assets/js/utilities.js"></script>
+  </head>
+
+  <body>
+    <div
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
+    >
+      <div
+        class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
+      ></div>
+      <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
+    </div>
+
+    <div class="bg-gray-50 dark:bg-gray-900 main-content blur-md">
+      <div id="headerContainer"></div>
+
+      <div id="modalContainer"></div>
+
+      <!-- You need focus-trap.js to make the modal accessible -->
+      <script src="../assets/js/focus-trap.js" defer></script>
+
+      <!--404-->
+      <div
+        class="min-h-screen p-6 bg-gray-50 dark:bg-gray-900 pt-20 flex items-center justify-center"
+      >
+        <main class="h-full pb-16 overflow-y-auto">
+          <div class="container flex flex-col items-center px-3 mx-auto">
+            <svg
+              class="w-12 h-12 mt-8 text-primary-200"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+            <h1 class="text-6xl font-semibold text-gray-700 dark:text-gray-200">
+              400
+            </h1>
+            <p class="text-gray-700 dark:text-gray-300">Bad Request.</p>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
