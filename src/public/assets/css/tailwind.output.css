@@ -24,8 +24,23 @@
 ::after {
   --tw-content: "";
 }
+.pb-20 {
+  padding-bottom: 5rem;
+}
 .pb-10 {
   padding-bottom: 2.5rem /* 40px */;
+}
+.pb-14 {
+  padding-bottom: 3.5rem;
+}
+.pt-14 {
+  padding-top: 3.5rem;
+}
+.pt-18 {
+  padding-top: 4.5rem;
+}
+.pb-6rem {
+  padding-bottom: 6rem !important;
 }
 /*
 1. Use a consistent sensible line-height in all browsers.
@@ -1128,6 +1143,10 @@ select {
   margin-top: 3rem /* 48px */;
 }
 
+.mt-14 {
+  margin-top: 3.5rem;
+}
+
 .mt-2 {
   margin-top: 0.5rem;
 }
@@ -1158,6 +1177,10 @@ select {
 
 .mb-8 {
   margin-bottom: 2rem;
+}
+
+.mb-14 {
+  margin-bottom: 3.5rem;
 }
 
 .mr-2 {
@@ -2492,6 +2515,18 @@ input {
 .dark .dark\:focus\:placeholder-gray-600:focus::placeholder {
   --tw-placeholder-opacity: 1;
   color: rgb(75 85 99 / var(--tw-placeholder-opacity));
+}
+.mt-custom {
+  margin-top: 71px;
+}
+
+@media (min-height: 300px) {
+  .sm\:mt-8 {
+    margin-top: 2rem;
+  }
+  .sm\:mt-14 {
+    margin-top: 3.5rem;
+  }
 }
 
 @media (min-width: 640px) {
