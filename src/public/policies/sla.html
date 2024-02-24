@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html x-data="data()" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+
+    <title>Service Level Agreement (SLA) | Orbital, Inc.</title>
+    <meta
+      name="description"
+      content="Orbital, Inc.'s SLA outlines our commitment to high service availability and performance standards for our dedicated machines, VPS, and Layer 4/7 DDoS protection services."
+    />
+    <meta
+      property="og:url"
+      content="https://orbitalsolutions.ca/policies/sla"
+    />
+    <meta
+      property="og:title"
+      content="Service Level Agreement (SLA) | Orbital, Inc."
+    />
+    <meta
+      property="og:description"
+      content="Explore Orbital, Inc.'s Service Level Agreement. Our SLA guarantees 99.99% uptime for dedicated machines, VPS, and advanced DDoS protection services, ensuring reliable and high-quality hosting solutions."
+    />
+    <meta
+      property="og:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Orbital, Inc." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Service Level Agreement (SLA) | Orbital, Inc."
+    />
+    <meta
+      name="twitter:description"
+      content="Orbital, Inc. commits to excellence with our SLA, offering 99.99% uptime for our hosting services. Learn about our dedication to reliability and customer satisfaction."
+    />
+    <meta
+      name="twitter:url"
+      content="https://orbitalsolutions.ca/policies/sla"
+    />
+    <meta
+      name="twitter:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#3d68ff" />
+    <meta
+      name="keywords"
+      content="Service Level Agreement, SLA, 99.99% Uptime, DDoS Protection, Dedicated Machines, Virtual Machines, VPS, Layer 4 Protection, Layer 7 Protection, GRE, Proxy, CDN"
+    />
+    <meta name="author" content="Orbital, Inc." />
+    <link
+      rel="apple-touch-icon"
+      sizes="128x128"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FXH2BSJD5X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FXH2BSJD5X");
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="../assets/js/init-alpine.js"></script>
+    <script src="../assets/js/utilities.js"></script>
+  </head>
+
+  <body>
+    <div
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
+    >
+      <div
+        class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
+      ></div>
+      <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
+    </div>
+
+    <div class="bg-gray-50 dark:bg-gray-900 main-content blur-md">
+      <div id="headerContainer"></div>
+
+      <div id="modalContainer"></div>
+
+      <!-- You need focus-trap.js to make the modal accessible -->
+      <script src="../assets/js/focus-trap.js" defer></script>
+
+      <!--SLA-->
+      <div
+        class="flex items-center min-h-screen px-6 bg-gray-50 dark:bg-gray-900"
+      >
+        <div class="w-full flex items-center justify-center">
+          <div class="flex-1 h-full mt-16 p-6 mx-auto overflow-hidden">
+            <div>
+              <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                Service Level Agreement Policy
+              </h1>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                This Service Level Agreement Policy (this "SLA") is a policy
+                governing the use of the products and services (the "Services")
+                provided by Orbital, Inc. ("Orbital", "we", "us", or "our").
+                This SLA applies separately to each account using the Services.
+              </p>
+              <h2
+                class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100"
+              >
+                1. Purpose
+              </h2>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                1.1 This Service Level Agreement (SLA) specifies Orbital, Inc.'s
+                commitment to uptime for its dedicated machines, virtual
+                machines (VPS), and Layer 4/7 proxy/CDN/WAF/GRE services. Our
+                objective is to ensure a minimum uptime of 99.99%, demonstrating
+                our dedication to service reliability and excellence.
+              </p>
+              <h2
+                class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100"
+              >
+                2. Uptime Guarantee
+              </h2>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                2.1 Orbital, Inc. guarantees a 99.99% uptime for its services,
+                measured on a monthly basis.
+              </p>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                2.2 Uptime is calculated on a monthly basis, and is defined as
+                the percentage of time the service is available and operational.
+              </p>
+              <h2
+                class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100"
+              >
+                3. Exceptions
+              </h2>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                3.1 Scheduled Maintenance: Customers will be notified in advance
+                of any maintenance activities that may affect service
+                availability.
+              </p>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                3.2 Unforeseen Circumstances: Events beyond the control of
+                Orbital, Inc., such as natural disasters, power outages, DDoS
+                attacks, or government-imposed restrictions, are not included in
+                uptime calculations.
+              </p>
+              <h2
+                class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100"
+              >
+                4. Downtime and Compensation
+              </h2>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                If service uptime falls below 99.99%, Orbital, Inc. offers the
+                following compensation:
+              </p>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                4.1 99.90% - 99.98% Uptime: A 10% discount on the monthly
+                service fee.
+              </p>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                4.2 99% - 99.89% Uptime: A 25% discount on the monthly service
+                fee.
+              </p>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                4.3 Below 99% Uptime: A 50% discount on the monthly service fee.
+              </p>
+              <h2
+                class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100"
+              >
+                5. Reimbursement Request
+              </h2>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                5.1 To claim compensation, customers must submit a reimbursement
+                request to Orbital, Inc. within 7 days of the month's end in
+                which the service did not meet the guaranteed uptime. The
+                request should include details of the downtime incident(s), such
+                as start time, duration, and any relevant information.
+              </p>
+              <h2
+                class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100"
+              >
+                6. Restrictions
+              </h2>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                6.1 Orbital, Inc. is not liable for indirect, incidental,
+                consequential, or special damages due to failure to meet the
+                uptime guarantee. The compensations described in this SLA are
+                the exclusive remedies available to customers for any
+                service-related issues.
+              </p>
+              <h2
+                class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100"
+              >
+                7. SLA Revisions
+              </h2>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                7.1 Orbital, Inc. reserves the right to revise or update this
+                SLA. Customers will be notified in writing of any changes, which
+                will take effect upon notification.
+              </p>
+              <h2
+                class="mt-6 text-xl font-bold text-gray-800 dark:text-gray-100"
+              >
+                8. Definitions
+              </h2>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                8.1 Orbital, Inc.: The provider of dedicated machines, virtual
+                machines (VPS), and Layer 4/7 proxy/CDN/WAF/GRE services. of the
+                total time agreed upon.
+              </p>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                8.2 Customer: The entity that engages Orbital, Inc. for the
+                provision of services.
+              </p>
+              <p class="mt-4 text-gray-600 dark:text-gray-300">
+                8.3 Uptime: The measure of service availability and operational
+                status, calculated as a percentage of the total time agreed
+                upon.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footerContainer"></div>
+    <script src="../assets/js/main.js"></script>
+  </body>
+</html>
