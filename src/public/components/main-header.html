@@ -4,7 +4,7 @@
   <nav
     x-show="isNavbarOpen || !isNavbarOpen"
     :class="{'min-h-screen': isNavbarOpen, 'h-16': !isNavbarOpen}"
-    class="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-md z-50 transition-height duration-300"
+    class="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-md z-max transition-height duration-300"
   >
     <div class="container mx-auto px-6 py-3">
       <div class="flex items-center justify-between">
@@ -260,32 +260,32 @@
           <div class="text-center justify-center">
             <a
               href="/src/public/index.html"
-              class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+              class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
               >Home</a
             >
             <hr class="my-2" />
             <div x-data="{ open: false }">
               <button
                 @click="open = !open"
-                class="w-full py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                class="w-full py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
               >
                 Dashboard
               </button>
-              <div x-show="open" class="pl-4">
+              <div x-show="open" class="px-4">
                 <hr class="my-2" />
                 <a
                   href="/src/public/dashboard/index.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Home</a
                 >
                 <a
                   href="/src/public/login.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Login</a
                 >
                 <a
                   href="/src/public/register.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Register</a
                 >
               </div>
@@ -294,25 +294,25 @@
             <div x-data="{ open: false }">
               <button
                 @click="open = !open"
-                class="w-full py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                class="w-full py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
               >
                 Products
               </button>
-              <div x-show="open" class="pl-4">
+              <div x-show="open" class="px-4">
                 <hr class="my-2" />
                 <a
                   href="/src/public/products/vps.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Virtual Servers</a
                 >
                 <a
                   href="/src/public/products/dedicated.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Dedicated Servers</a
                 >
                 <a
                   href="/src/public/products/remote-protection.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Remote Protection</a
                 >
               </div>
@@ -321,20 +321,20 @@
             <div x-data="{ open: false }">
               <button
                 @click="open = !open"
-                class="w-full py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                class="w-full py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
               >
                 Contact
               </button>
-              <div x-show="open" class="pl-4">
+              <div x-show="open" class="px-4">
                 <hr class="my-2" />
                 <a
                   href="/src/public/contact.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Contact Us</a
                 >
                 <a
                   href="/src/public/discord.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Discord</a
                 >
               </div>
@@ -343,30 +343,30 @@
             <div x-data="{ open: false }">
               <button
                 @click="open = !open"
-                class="w-full py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                class="w-full py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
               >
                 Policies
               </button>
-              <div x-show="open" class="pl-4">
+              <div x-show="open" class="px-4">
                 <hr class="my-2" />
                 <a
                   href="/src/public/policies/tos.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Terms of Service</a
                 >
                 <a
                   href="/src/public/policies/sla.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Service Level Agreement</a
                 >
                 <a
                   href="/src/public/policies/privacy.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Privacy Policy</a
                 >
                 <a
                   href="/src/public/policies/fup.html"
-                  class="block py-2 pr-4 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
+                  class="block py-2 text-gray-700 dark:text-gray-200 dark:hover:bg-gray-700"
                   >Fair Use Policy</a
                 >
               </div>
@@ -374,27 +374,29 @@
           </div>
           <!--Footer-->
 
-          <div class="flex items-center text-center justify-between">
-            <p class="pl-6 text-xs text-gray-700 dark:text-gray-200">
+          <div class="flex items-center text-center justify-between w-full">
+            <p class="text-xs text-gray-700 dark:text-gray-200">
               © 2024 Orbital, Inc.
             </p>
             <!-- Right side content (e.g., status badge, theme toggler) -->
-            <iframe
-              src="https://status.orbitalsolutions.ca/badge?theme=dark"
-              width="200"
-              height="30"
-              frameborder="0"
-              scrolling="no"
-              x-show="dark"
-            ></iframe>
-            <iframe
-              src="https://status.orbitalsolutions.ca/badge?theme=light"
-              width="200"
-              height="30"
-              frameborder="0"
-              scrolling="no"
-              x-show="!dark"
-            ></iframe>
+            <div>
+              <iframe
+                src="https://status.orbitalsolutions.ca/badge?theme=dark"
+                height="30"
+                frameborder="0"
+                scrolling="no"
+                x-show="dark"
+                class="max-w-44 w-auto"
+              ></iframe>
+              <iframe
+                src="https://status.orbitalsolutions.ca/badge?theme=light"
+                height="30"
+                frameborder="0"
+                scrolling="no"
+                x-show="!dark"
+                class="max-w-44 w-auto"
+              ></iframe>
+            </div>
           </div>
         </div>
         <div x-show="isNavbarOpen" class="md:hidden w-full"></div>
