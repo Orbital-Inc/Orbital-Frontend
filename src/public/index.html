@@ -100,6 +100,11 @@
     ></script>
     <script src="./assets/js/init-alpine.js"></script>
     <script src="./assets/js/utilities.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
   </head>
 
   <body
@@ -126,7 +131,7 @@
       <div
         class="flex items-center min-h-screen px-6 bg-gray-50 dark:bg-gray-900"
       >
-        <div class="w-full flex items-center justify-center">
+        <div id="countdownDiv" class="w-full flex items-center justify-center">
           <div class="flex-1 h-full p-6 mx-auto overflow-hidden">
             <div class="text-center">
               <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
@@ -135,6 +140,187 @@
               <p id="countdown" class="mt-4 text-gray-600 dark:text-gray-300">
                 Countdown baby enjoy!
               </p>
+            </div>
+          </div>
+        </div>
+        <div id="homeDiv" class="hidden pt-20">
+          <!--Welcome & Location-->
+          <div
+            class="w-full md:flex flex-none justify-center md:flex-col items-center"
+          >
+            <!--Header with short description about Orbital-->
+            <div class="flex-1 h-full p-6 mx-auto overflow-hidden">
+              <div class="text-center">
+                <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                  Welcome to Orbital, Inc.
+                </h1>
+                <p class="mt-4 text-gray-600 dark:text-gray-300">
+                  Orbital, Inc. offers cutting-edge Layer 4 &amp; 7 DDoS
+                  protection remotely via GRE &amp; Proxy/CDN. Explore our
+                  virtual and dedicated machines with built-in DDoS protection
+                  and leverage our anycast network for unparalleled security and
+                  performance.
+                </p>
+              </div>
+            </div>
+            <!--Locations, use leaflet javascript map to display our current locations-->
+            <div class="flex-1 h-full px-6 pb-6 mx-auto overflow-hidden">
+              <div class="text-center">
+                <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                  Our Locations
+                </h1>
+                <div id="map" class="mt-2 h-48 sm:h-64 md:h-96"></div>
+              </div>
+            </div>
+          </div>
+          <!--Features of Orbital-->
+          <div
+            class="w-full md:flex flex-none justify-center md:flex-col items-center pb-20"
+          >
+            <div class="flex-1 h-full p-4 mx-auto overflow-hidden">
+              <div class="text-center">
+                <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                  Our Features
+                </h1>
+                <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <a
+                    class="flex items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                    href="/src/public/products/remote-protection.html"
+                  >
+                    <div
+                      class="p-3 mr-4 text-purple-500 bg-purple-100 rounded-lg dark:text-purple-100 dark:bg-purple-500"
+                    >
+                      <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div>
+                      <h4
+                        class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                      >
+                        DDoS Protection
+                      </h4>
+                      <p class="text-gray-600 dark:text-gray-300">
+                        Layer 4 &amp; 7 DDoS protection via GRE &amp; Proxy/CDN.
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    class="flex items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                    href="/src/public/products/remote-protection.html"
+                  >
+                    <div
+                      class="p-3 mr-4 text-purple-500 bg-purple-100 rounded-lg dark:text-purple-100 dark:bg-purple-500"
+                    >
+                      <i class="fas fa-globe"></i>
+                    </div>
+                    <div>
+                      <h4
+                        class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                      >
+                        Anycast Network
+                      </h4>
+                      <p class="text-gray-600 dark:text-gray-300">
+                        Leverage our anycast network for unparalleled security
+                        and performance.
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    class="flex items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                    href="/src/public/products/vps.html"
+                  >
+                    <div
+                      class="p-3 mr-4 text-purple-500 bg-purple-100 rounded-lg dark:text-purple-100 dark:bg-purple-500"
+                    >
+                      <i class="fas fa-server"></i>
+                    </div>
+                    <div>
+                      <h4
+                        class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                      >
+                        Virtual Machines
+                      </h4>
+                      <p class="text-gray-600 dark:text-gray-300">
+                        Secure virtual machines with built-in DDoS protection.
+                      </p>
+                    </div>
+                  </a>
+                  <a
+                    class="flex items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                    href="/src/public/products/dedicated.html"
+                  >
+                    <div
+                      class="p-3 mr-4 text-purple-500 bg-purple-100 rounded-lg dark:text-purple-100 dark:bg-purple-500"
+                    >
+                      <i class="fas fa-server"></i>
+                    </div>
+                    <div>
+                      <h4
+                        class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                      >
+                        Dedicated Machines
+                      </h4>
+                      <p class="text-gray-600 dark:text-gray-300">
+                        Secure dedicated machines with built-in DDoS protection.
+                      </p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--More details about our DDoS Protection & Anycast Network-->
+          <div
+            class="w-full md:flex flex-none justify-center md:flex-col items-center pb-10"
+          >
+            <div class="flex-1 h-full p-6 mx-auto overflow-hidden">
+              <div class="text-center">
+                <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                  DDoS Protection &amp; Anycast Network
+                </h1>
+                <p class="mt-4 text-gray-600 dark:text-gray-300">
+                  At Orbital, Inc., we elevate DDoS defense to the next level
+                  with our state-of-the-art Layer 4 and Layer 7 DDoS protection,
+                  utilizing cutting-edge technologies like XDP (eXpress Data
+                  Path) and VPP (Vector Packet Processing) for our firewall and
+                  anti-DDoS solutions. Our robust security framework includes
+                  stateful L4 filtering and L7 application filters, catering to
+                  a wide range of applications such as OpenVPN, HTTP, and more,
+                  with SYNProxy coming soon. We offer unparalleled customization
+                  for application filters through our Web Application Firewall
+                  (WAF), ensuring tailored security that meets your specific
+                  needs. All our servers, whether dedicated or VPS, include DDoS
+                  protection at no extra cost. Additionally, we provide remote
+                  DDoS protection via GRE and L4/7 proxy, safeguarding your
+                  infrastructure with our advanced anycast network for unmatched
+                  security and performance.
+                </p>
+              </div>
+            </div>
+          </div>
+          <!--More details about vms and dedicated servers-->
+          <div
+            class="w-full md:flex flex-none justify-center md:flex-col items-center pb-10"
+          >
+            <div class="flex-1 h-full p-6 mx-auto overflow-hidden">
+              <div class="text-center">
+                <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                  Virtual Machines &amp; Dedicated Machines
+                </h1>
+                <p class="mt-4 text-gray-600 dark:text-gray-300">
+                  Orbital, Inc. offers secure virtual and dedicated machines
+                  with built-in DDoS protection, ensuring your infrastructure is
+                  safeguarded from malicious attacks. Our virtual machines are
+                  hosted on powerful servers with high-speed SSDs, providing
+                  exceptional performance and reliability. We offer a wide range
+                  of operating systems, including Linux and Windows, and
+                  guarantee 99.99% uptime. Our dedicated machines are equipped
+                  with the latest hardware and are ideal for resource-intensive
+                  applications, providing the flexibility and control you need
+                  to manage your infrastructure. Both our virtual and dedicated
+                  machines are backed by our anycast network, ensuring
+                  unparalleled security and performance.
+                </p>
+              </div>
             </div>
           </div>
         </div>
