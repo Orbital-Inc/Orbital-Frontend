@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html x-data="data()" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Virtual Machines (VPS) | Orbital, Inc.</title>
+    <meta
+      name="description"
+      content="Explore Orbital, Inc.'s Virtual Machine (VPS) offerings, designed for scalability, performance, and security. Find the perfect VPS solution for your hosting needs."
+    />
+    <meta
+      property="og:url"
+      content="https://orbitalsolutions.ca/products/vps"
+    />
+    <meta
+      property="og:title"
+      content="Virtual Machines (VPS) | Orbital, Inc."
+    />
+    <meta
+      property="og:description"
+      content="Orbital, Inc. provides high-performance Virtual Machines (VPS) with customizable configurations to meet your specific hosting requirements. Discover our VPS solutions today."
+    />
+    <meta
+      property="og:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Orbital, Inc." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      content="Virtual Machines (VPS) | Orbital, Inc."
+    />
+    <meta
+      name="twitter:description"
+      content="Unlock the potential of Orbital, Inc.'s Virtual Machines (VPS) for your projects. Experience unparalleled flexibility, control, and performance with our VPS hosting services."
+    />
+    <meta
+      name="twitter:url"
+      content="https://orbitalsolutions.ca/products/vps"
+    />
+    <meta
+      name="twitter:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#3d68ff" />
+    <meta
+      name="keywords"
+      content="VPS, Virtual Machines, Hosting Services, Scalable VPS, High-Performance Hosting, DDoS Protection, Dedicated Resources, Customizable VPS"
+    />
+    <meta name="author" content="Orbital, Inc." />
+    <link
+      rel="apple-touch-icon"
+      sizes="128x128"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FXH2BSJD5X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FXH2BSJD5X");
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="../assets/js/init-alpine.js"></script>
+    <script src="../assets/js/utilities.js"></script>
+    <!-- reCAPTCHA script -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </head>
+
+  <body>
+    <div
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
+    >
+      <div
+        class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
+      ></div>
+      <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
+    </div>
+
+    <div class="bg-gray-50 dark:bg-gray-900 main-content blur-md">
+      <div id="headerContainer"></div>
+
+      <div id="modalContainer"></div>
+
+      <!-- You need focus-trap.js to make the modal accessible -->
+      <script src="../assets/js/focus-trap.js" defer></script>
+
+      <!--Home-->
+      <div
+        class="flex items-center min-h-screen px-6 bg-gray-50 dark:bg-gray-900"
+      >
+        <div id="countdownDiv" class="w-full flex items-center justify-center">
+          <div class="flex-1 h-full p-6 mx-auto overflow-hidden">
+            <div class="text-center">
+              <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
+                Virtual Servers Coming Soon!
+              </h1>
+              <p id="countdown" class="mt-4 text-gray-600 dark:text-gray-300">
+                Countdown baby enjoy!
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="vpsDiv" class="hidden flex-col">
+          <div class="pt-20">
+            <div class="flex flex-col items-center justify-center">
+              <h1
+                class="text-3xl font-bold text-gray-900 dark:text-gray-100 sm:text-4xl"
+              >
+                Virtual Machines (VPS)
+              </h1>
+              <p
+                class="mt-4 text-gray-600 dark:text-gray-300 text-center sm:text-lg"
+              >
+                Orbital, Inc. offers high-performance Virtual Machines (VPS)
+                with customizable configurations to meet your specific hosting
+                requirements. Discover our VPS solutions today.
+              </p>
+            </div>
+          </div>
+          <div
+            class="w-full md:flex flex-none justify-center md:flex-col items-center pb-20"
+          >
+            <div
+              class="md:m-2 flex-1 h-full max-w-2xl mt-4 p-6 mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
+            >
+              <div>
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                  Customize Your Virtual Machine(VPS)
+                </h1>
+              </div>
+              <form id="vpsForm">
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >VPS Nickname</span
+                  >
+                  <input
+                    id="nickname"
+                    type="text"
+                    class="block w-full mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                    placeholder="Web Server 1"
+                  />
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400">Hostname</span>
+                  <input
+                    id="hostname"
+                    type="text"
+                    class="block w-full mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                    placeholder="hosted-by.orbitalsolutions.ca"
+                  />
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Operating System</span
+                  >
+                  <select
+                    id="os"
+                    class="block w-full mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                  >
+                    <option name="deb12">Debian 12</option>
+                  </select>
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span id="coresSpan" class="text-gray-700 dark:text-gray-400"
+                    >Virtual Cores (1)</span
+                  >
+                  <div class="relative">
+                    <input
+                      id="cores"
+                      type="range"
+                      min="1"
+                      max="64"
+                      value="1"
+                      step="1"
+                      class="slider-thumb w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                    />
+                    <span
+                      class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4"
+                      >Min (1)</span
+                    >
+                    <span
+                      class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4"
+                      >Max (64)</span
+                    >
+                  </div>
+                </label>
+                <label class="block mt-8 text-sm">
+                  <span id="memorySpan" class="text-gray-700 dark:text-gray-400"
+                    >Memory (1Gb)</span
+                  >
+                  <div class="relative">
+                    <input
+                      id="memory"
+                      type="range"
+                      min="1"
+                      max="256"
+                      value="1"
+                      step="2"
+                      class="slider-thumb w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                    />
+                    <span
+                      class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4"
+                      >Min (1)</span
+                    >
+                    <span
+                      class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4"
+                      >Max (256)</span
+                    >
+                  </div>
+                </label>
+                <label class="block mt-8 text-sm">
+                  <span
+                    id="diskSpaceSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >Disk Space (20Gbs)</span
+                  >
+                  <div class="relative">
+                    <input
+                      id="diskSpace"
+                      type="range"
+                      min="20"
+                      max="500"
+                      value="20"
+                      step="20"
+                      class="slider-thumb w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                    />
+                    <span
+                      class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4"
+                      >Min (20)</span
+                    >
+                    <span
+                      class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4"
+                      >Max (500)</span
+                    >
+                  </div>
+                </label>
+                <label class="block mt-8 text-sm">
+                  <span
+                    id="portSpeedSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >Port Speed (1Gbps)</span
+                  >
+                  <div class="relative">
+                    <input
+                      id="portSpeed"
+                      disabled
+                      type="range"
+                      min="1"
+                      max="10"
+                      value="1"
+                      step="1"
+                      class="slider-thumb w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                    />
+                    <span
+                      class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4"
+                      >Min (1)</span
+                    >
+                    <span
+                      class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4"
+                      >Max (10)</span
+                    >
+                  </div>
+                </label>
+                <label class="block mt-8 text-sm">
+                  <span
+                    id="ipAddressesSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >IP Addresses (1)</span
+                  >
+                  <div class="relative">
+                    <input
+                      id="ipAddresses"
+                      disabled
+                      type="range"
+                      min="1"
+                      max="256"
+                      value="1"
+                      step="1"
+                      class="slider-thumb w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+                    />
+                    <span
+                      class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-4"
+                      >Min (1)</span
+                    >
+                    <span
+                      class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-4"
+                      >Max (256)</span
+                    >
+                  </div>
+                </label>
+                <label class="block mt-8 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400">Location</span>
+                  <select
+                    id="location"
+                    class="block w-full mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                  >
+                    <option name="CHI">Chicago - USA</option>
+                    <option name="TOR">Toronto - CA</option>
+                    <option name="FRA">Frankfurt - DE</option>
+                  </select>
+                </label>
+              </form>
+            </div>
+            <div
+              class="md:m-2 flex-1 h-full max-w-xs mt-4 p-6 mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
+            >
+              <div>
+                <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
+                  Pricing Details
+                </h1>
+              </div>
+              <form id="purchaseForm">
+                <label class="block mt-4 text-sm">
+                  <span
+                    id="coresPricingSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >Cores: 1 x $3.50 = $3.50</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span
+                    id="memoryPricingSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >Memory: 1 x $1 = $1.00</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span
+                    id="diskSpacePricingSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >Disk Space: 20Gbs x $0.05 = $1</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span
+                    id="portSpeedPricingSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >Port Speed: 1Gbps x $0 = $0</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span
+                    id="locationPricingSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >IP Addresses: 1 x $1 = $0</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span
+                    id="locationPricingSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >Location: Chicago - USA x $0 = $0</span
+                  >
+                </label>
+                <hr class="my-2" />
+                <label class="block mt-4 text-sm">
+                  <span
+                    id="subtotalPricingSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >Subtotal: $5</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span id="taxesSpan" class="text-gray-700 dark:text-gray-400"
+                    >Taxes: SubTotal x 15%</span
+                  >
+                </label>
+                <hr class="my-2" />
+                <label class="block mt-4 text-sm">
+                  <span
+                    id="totalPricingSpan"
+                    class="text-gray-700 dark:text-gray-400"
+                    >Total: $5</span
+                  >
+                </label>
+                <hr class="my-2" />
+                <div class="block mt-4 text-sm">
+                  <label class="inline-flex items-center dark:text-gray-400">
+                    <input
+                      type="checkbox"
+                      class="placeholder-gray-400 border-gray-300 rounded shadow-sm text-primary-600 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-gray dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                      checked=""
+                    />
+                    <span class="ml-2"
+                      >I agree to the
+                      <span class="underline"
+                        ><a href="/src/public/policies/tos.html"
+                          >terms of service</a
+                        ></span
+                      >.</span
+                    >
+                  </label>
+                </div>
+                <button
+                  data-sitekey="6Ld-p8QnAAAAAK_dyLU4JIPvmWQDL84vgJ7dG6gb"
+                  data-callback="OrderAsync"
+                  data-action="submit"
+                  class="g-recaptcha block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary-600 border border-transparent rounded-lg active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring"
+                >
+                  Order Now
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="footerContainer"></div>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/product/vps.js"></script>
+  </body>
+</html>
