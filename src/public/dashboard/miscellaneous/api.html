@@ -1,77 +1,102 @@
 <!DOCTYPE html>
 <html x-data="data()" lang="en">
   <head>
-    <!--#region Meta Data-->
+    <!--METADATA-->
     <meta charset="UTF-8" />
-    <meta property="og:title" content="API | Nebula Mods, Inc." />
-    <meta property="og:url" content="https://nebulamods.ca/dashboard/api" />
+    <title>API Management | Orbital, Inc. Dashboard</title>
     <meta
-      property="og:site_name"
-      content="Sign in to view all the api services Nebula Mods, Inc. has to offer for free!"
+      name="description"
+      content="Configure and manage your API settings on the Orbital, Inc. dashboard. Control access, set limits, and customize the API to fit your operational requirements and integration needs."
     />
     <meta
-      name="og:description"
-      content="Sign in to view all the api services Nebula Mods, Inc. has to offer for free!"
+      property="og:url"
+      content="https://orbitalsolutions.ca/dashboard/miscellaneous/api"
     />
     <meta
-      name="og:image"
-      content="https://nebulamods.ca/content/images/logo-nebulamods.png"
-    />
-    <meta name="twitter:card" content="summary_small_image" />
-    <meta
-      property="twitter:url"
-      content="https://nebulamods.ca/dashboard/api"
+      property="og:title"
+      content="API Management | Orbital, Inc. Dashboard"
     />
     <meta
-      name="twitter:image"
-      content="https://nebulamods.ca/content/images/logo-nebulamods.png"
+      property="og:description"
+      content="Take full control of your API configurations with the Orbital, Inc. dashboard. Adjust settings, manage access, and ensure your integrations run smoothly and securely."
+    />
+    <meta
+      property="og:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Orbital, Inc." />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="API Management | Orbital, Inc. Dashboard"
     />
     <meta
       name="twitter:description"
-      content="Sign in to view all the api services Nebula Mods, Inc. has to offer for free!"
+      content="Easily manage your API settings through the Orbital, Inc. dashboard. Customize access, define limits, and optimize your API for efficient and secure integration."
     />
     <meta
-      name="description"
-      content="Sign in to view all the api services Nebula Mods, Inc. has to offer for free!"
+      name="twitter:url"
+      content="https://orbitalsolutions.ca/dashboard/miscellaneous/api"
     />
-    <meta name="theme-color" content="#3d68ff" />
-    <meta http-equiv="pragma" content="no-cache" />
-    <meta http-equiv="window-target" content="_top" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="Nebula" />
-    <meta property="og:type" content="website" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="twitter:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#9333ea" />
+    <meta
+      name="keywords"
+      content="API Management, API Settings, API Integration, API Security, Dashboard, Orbital, Inc."
+    />
+    <meta name="author" content="Orbital, Inc." />
     <link
       rel="apple-touch-icon"
       sizes="128x128"
-      href="https://nebulamods.ca/content/images/logo-128.png"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-128.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://nebulamods.ca/content/images/logo-32.png"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="https://nebulamods.ca/content/images/logo-16.png"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-16.png"
     />
     <link
       rel="mask-icon"
-      href="https://nebulamods.ca/content/images/logo-nebulamods.png"
-      color="#5bbad5"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+      color="#9333ea"
     />
     <meta name="msapplication-TileColor" content="#00aba9" />
     <link
       rel="shortcut icon"
       type="image/x-icon"
-      href="https://nebulamods.ca/favicon.ico"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>API | Orbital</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FXH2BSJD5X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FXH2BSJD5X");
+    </script>
+    <!--METADATA-->
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -132,7 +157,7 @@
         <div id="headerContainer"></div>
         <!--Content-->
         <main class="h-full overflow-y-auto">
-          <div class="container grid px-3 mx-auto">
+          <div class="container grid p-6 mx-auto">
             <!--Content Header-->
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
@@ -254,7 +279,7 @@
         </main>
       </div>
     </div>
-    <script src="../../assets/js/dashboard.js"></script>
-    <script src="../../assets/js/api.js"></script>
+    <script src="../../assets/js/dashboard/dashboard.js"></script>
+    <script src="../../assets/js/dashboard/api.js"></script>
   </body>
 </html>

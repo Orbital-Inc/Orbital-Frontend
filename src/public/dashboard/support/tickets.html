@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html x-data="data()" lang="en">
+  <head>
+    <!--METADATA-->
+    <meta charset="UTF-8" />
+    <title>Support | Orbital, Inc. Dashboard</title>
+    <meta
+      name="description"
+      content="Find support and get your questions answered with the Orbital, Inc. dashboard. Access FAQs, submit support tickets, and explore tutorials to make the most of our services."
+    />
+    <meta
+      property="og:url"
+      content="https://orbitalsolutions.ca/dashboard/support/support"
+    />
+    <meta property="og:title" content="Support | Orbital, Inc. Dashboard" />
+    <meta
+      property="og:description"
+      content="Need help? The Orbital, Inc. dashboard support page offers comprehensive resources, including FAQs, guides, and direct contact options to assist you."
+    />
+    <meta
+      property="og:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Orbital, Inc." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Support | Orbital, Inc. Dashboard" />
+    <meta
+      name="twitter:description"
+      content="Access support resources on the Orbital, Inc. dashboard. Submit tickets, read FAQs, and get direct assistance to ensure your hosting experience is seamless."
+    />
+    <meta
+      name="twitter:url"
+      content="https://orbitalsolutions.ca/dashboard/support/support"
+    />
+    <meta
+      name="twitter:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#9333ea" />
+    <meta
+      name="keywords"
+      content="Dashboard Support, Customer Service, FAQs, Support Tickets, Hosting Help, Orbital, Inc."
+    />
+    <meta name="author" content="Orbital, Inc." />
+    <link
+      rel="apple-touch-icon"
+      sizes="128x128"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+      color="#9333ea"
+    />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FXH2BSJD5X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FXH2BSJD5X");
+    </script>
+    <!--METADATA-->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/tailwind.output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <script src="../../assets/js/utilities.js" defer></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="../../assets/js/init-alpine.js"></script>
+  </head>
+
+  <body>
+    <div
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
+    >
+      <div
+        class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
+      ></div>
+      <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
+    </div>
+    <div
+      class="flex h-screen bg-gray-50 dark:bg-gray-900"
+      :class="{ 'overflow-hidden': isSideMenuOpen }"
+    >
+      <div id="sidebarDesktopContainer"></div>
+
+      <!-- Backdrop -->
+      <div
+        x-show="isSideMenuOpen"
+        x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
+      ></div>
+
+      <div id="sidebarMobileContainer"></div>
+
+      <div id="modalContainer"></div>
+
+      <!-- You need focus-trap.js to make the modal accessible -->
+      <script src="../../assets/js/focus-trap.js" defer></script>
+
+      <!--Body-->
+      <div class="flex flex-col flex-1 w-full bg-gray-50 dark:bg-gray-900">
+        <!--Header-->
+        <div id="headerContainer"></div>
+        <!--Content-->
+        <main class="w-full flex items-center justify-center">
+          <div
+            class="flex-1 h-full p-6 mx-auto overflow-hidden bg-gray-50 dark:bg-gray-900"
+          >
+            <!--Content Header-->
+            <div class="flex justify-between flow-row">
+              <h2
+                class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              >
+                All Tickets
+              </h2>
+              <div class="items-center w-1/3">
+                <button
+                  class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary-600 border border-transparent rounded-lg active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring"
+                  onclick="window.location.href = 'https://orbitalsolutions.ca/dashboard/support/open-ticket'"
+                >
+                  Open Ticket
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="w-full overflow-hidden rounded-lg ring-1 ring-black ring-opacity-5"
+            >
+              <div class="w-full overflow-x-auto">
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr
+                      class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+                    >
+                      <th class="px-4 py-3">Subject</th>
+                      <th class="px-4 py-3 text-center">Category</th>
+                      <th class="px-4 py-3 text-center">Status</th>
+                      <th class="px-4 py-3 text-center">Last Updated</th>
+                      <th class="px-4 py-3 text-center">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+                  >
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3 text-sm">Help me</td>
+                      <td class="px-4 py-3 text-sm text-center">Support</td>
+                      <td class="px-4 py-3 text-xs text-center">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Open
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm text-center">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center justify-center text-sm">
+                          <button
+                            class="flex items-center justify-center px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                            onclick="window.location.href = 'https://orbitalsolutions.ca/dashboard/support/ticket?ticket=12345'"
+                          >
+                            <i class="fas fa-eye"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3 text-sm">I wanna buy a server</td>
+                      <td class="px-4 py-3 text-sm text-center">Sales</td>
+                      <td class="px-4 py-3 text-xs text-center">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
+                        >
+                          Pending
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm text-center">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center justify-center text-sm">
+                          <button
+                            class="flex items-center justify-center px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                            onclick="window.location.href = 'https://orbitalsolutions.ca/dashboard/support/ticket?ticket=12345'"
+                          >
+                            <i class="fas fa-eye"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3 text-sm">Password reset help</td>
+                      <td class="px-4 py-3 text-sm text-center">General</td>
+                      <td class="px-4 py-3 text-xs text-center">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
+                        >
+                          Hold
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm text-center">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center justify-center text-sm">
+                          <button
+                            class="flex items-center justify-center px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                            onclick="window.location.href = 'https://orbitalsolutions.ca/dashboard/support/ticket?ticket=12345'"
+                          >
+                            <i class="fas fa-eye"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3 text-sm">Someone is attacking me</td>
+                      <td class="px-4 py-3 text-sm text-center">Abuse</td>
+                      <td class="px-4 py-3 text-xs text-center">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700"
+                        >
+                          Closed
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm text-center">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center justify-center text-sm">
+                          <button
+                            class="flex items-center justify-center px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                            onclick="window.location.href = 'https://orbitalsolutions.ca/dashboard/support/ticket?ticket=12345'"
+                          >
+                            <i class="fas fa-eye"></i>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
+              >
+                <span class="flex items-center col-span-3">
+                  Showing 21-30 of 100
+                </span>
+                <span class="col-span-2"></span>
+                <!-- Pagination -->
+                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                  <nav aria-label="Table navigation">
+                    <ul class="inline-flex items-center">
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:ring"
+                          aria-label="Previous"
+                        >
+                          <svg
+                            class="w-4 h-4 fill-current"
+                            aria-hidden="true"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:ring"
+                        >
+                          1
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:ring"
+                        >
+                          2
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 text-white transition-colors duration-150 border border-r-0 rounded-md border-primary-600 bg-primary-600 focus:outline-none focus:ring"
+                        >
+                          3
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:ring"
+                        >
+                          4
+                        </button>
+                      </li>
+                      <li>
+                        <span class="px-3 py-1">...</span>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:ring"
+                        >
+                          8
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:ring"
+                        >
+                          9
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:ring"
+                          aria-label="Next"
+                        >
+                          <svg
+                            class="w-4 h-4 fill-current"
+                            aria-hidden="true"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </span>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../../assets/js/dashboard/dashboard.js"></script>
+    <script src="../../assets/js/dashboard/support/ticket.js"></script>
+  </body>
+</html>

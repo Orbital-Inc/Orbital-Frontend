@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en" data-color-scheme="">
+  <head>
+    <title>Geolocation | Orbital, Inc.</title>
+
+    <!--#region Meta Data-->
+    <meta charset="UTF-8" />
+    <title>Geolocation | Orbital, Inc.</title>
+    <meta
+      name="description"
+      content="Explore Orbital, Inc.'s geolocation service, providing accurate location information based on IP addresses. Leverage our geolocation API to enhance user experiences, target content, and detect fraudulent activities with precision."
+    />
+    <meta property="og:title" content="Geolocation | Orbital, Inc." />
+    <meta
+      property="og:description"
+      content="Explore Orbital, Inc.'s geolocation service, providing accurate location information based on IP addresses. Leverage our geolocation API to enhance user experiences, target content, and detect fraudulent activities with precision."
+    />
+    <meta
+      property="og:url"
+      content="https://orbitalsolutions.ca/geolocation/"
+    />
+    <meta property="og:site_name" content="Orbital, Inc." />
+    <meta
+      property="og:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:description"
+      content="Explore Orbital, Inc.'s geolocation service, providing accurate location information based on IP addresses. Leverage our geolocation API to enhance user experiences, target content, and detect fraudulent activities with precision."
+    />
+    <meta
+      name="twitter:url"
+      content="https://orbitalsolutions.ca/geolocation/"
+    />
+    <meta
+      name="twitter:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#9333ea" />
+    <meta
+      name="keywords"
+      content="Geolocation, IP Geolocation, Location Information, Geolocation API, User Experience, Content Targeting, Fraud Detection"
+    />
+
+    <meta name="author" content="Orbital, Inc." />
+    <link
+      rel="apple-touch-icon"
+      sizes="128x128"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+      color="#9333ea"
+    />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Font Awesome if you need it
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"
+    />
+    <style>
+      .from-teal-200 {
+        --tw-gradient-from: #99f6e4;
+        --tw-gradient-to: rgb(121 40 202 / 0);
+        --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+      }
+
+      .to-teal-500 {
+        --tw-gradient-to: #14b8a6;
+      }
+
+      :root {
+        color-scheme: light dark;
+      }
+
+      [data-color-scheme="dark"] {
+        color-scheme: dark;
+      }
+
+      [data-color-scheme="light"] {
+        color-scheme: light;
+      }
+
+      button span {
+        transition: transform 0.2s;
+      }
+
+      button.active span {
+        transform: translateX(100%);
+      }
+      @media (min-width: 992px) {
+        .lg\:w-1\:3 {
+          width: 30%;
+        }
+      }
+    </style>
+    <script src="https://unpkg.com/popper.js@1/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@4"></script>
+    <!--Replace with your tailwind.css once created-->
+  </head>
+
+  <body
+    class="font-sans antialiased text-gray-900 leading-normal tracking-wider bg-cover bg-gradient-to-r from-teal-200 to-teal-500"
+  >
+    <div
+      class="max-w-4xl flex lg:justify-center items-center h-auto lg:h-full flex-wrap mx-auto mt-32"
+    >
+      <!--Main Col-->
+      <div
+        id="ipAddyDiv"
+        class="theme w-full lg:w-full rounded-lg lg:rounded-l-lg shadow-2xl bg-white opacity-75 mx-6 lg:mx-0"
+      >
+        <div class="pb-2 pr-4 pt-2 pl-4 md:p-10 text-center">
+          <form id="ipAddressInput" class="inline" onsubmit="return false">
+            <input
+              class="bg-white text-3xl font-bold pt-8 lg:pt-0 appearance-none w-full py-2 text-center px-3 leading-tight focus:outline-none focus:shadow-outline"
+              id="ipAddress"
+              type="text"
+              required
+              name="ipAddress"
+              aria-label="IP Address"
+              placeholder="IP Address"
+            />
+            <div
+              class="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-green-500 opacity-25"
+            ></div>
+            <button
+              class="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              type="submit"
+              onclick="javascript:Geolocate(document.getElementById('ipAddress').value);"
+            >
+              Geolocate
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div
+      class="flex lg:justify-center items-center h-auto lg:h-full flex-wrap mx-auto mb-16"
+    >
+      <!--Network Col-->
+      <div
+        id="network"
+        class="theme w-full lg:w-2/5 rounded-lg lg:rounded-l-lg shadow-2xl bg-white opacity-75 mx-6 lg:mx-0 mt-10 lg:mr-1"
+      >
+        <div class="p-4 md:p-12 text-center">
+          <!-- Image for mobile view-->
+          <!-- <div
+				class="block lg:hidden mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+				style="
+				  background-image: url('https://cdn.ipregistry.co/flags/noto/us.png');
+				"
+			  ></div> -->
+          <h3 class="text-3xl font-bold pt-8 lg:pt-0">Network</h3>
+          <div
+            class="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-green-500 opacity-25"
+          ></div>
+          <ul class="text-left">
+            <li class="mt-2">IP Address: N/A</li>
+            <li>Hostname: N/A</li>
+            <li>Type: N/A</li>
+            <li>Organization: N/A</li>
+            <li>ISP: N/A</li>
+            <li>Domain: N/A</li>
+            <li>AS Number: N/A</li>
+            <li>As Name: N/A</li>
+            <li>Route: N/A</li>
+          </ul>
+          <!-- Use https://simpleicons.org/ to find the svg for your preferred product -->
+        </div>
+      </div>
+      <!--Location Col-->
+      <div
+        id="location"
+        class="theme w-full lg:w-2/5 rounded-lg lg:rounded-l-lg shadow-2xl bg-white opacity-75 mx-6 lg:mx-0 mt-10 lg:mr-1"
+      >
+        <div class="p-4 md:p-12 text-center">
+          <!-- Image for mobile view-->
+          <!-- <div
+					class="block lg:hidden mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+					style="
+					  background-image: url('https://cdn.ipregistry.co/flags/noto/us.png');
+					"
+				  ></div> -->
+          <h3 class="text-3xl font-bold pt-8 lg:pt-0">Location</h3>
+          <div
+            class="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-green-500 opacity-25"
+          ></div>
+          <ul class="text-left">
+            <li class="mt-2">Country: N/A</li>
+            <li>Region: N/A</li>
+            <li>District: N/A</li>
+            <li>City: N/A</li>
+          </ul>
+          <div class="pt-1 items-center flex justify-center">
+            <img
+              alt="flag"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhBwrGri-0g4UHZbQPWt42QIWLoNDnnAPQJB_mGr4kA8KPpl5ikBu3v-Se4Ibw8jHFtwU&usqp=CAU"
+              id="flagImg"
+            />
+          </div>
+          <!--flag here-->
+          <!-- Use https://simpleicons.org/ to find the svg for your preferred product -->
+        </div>
+      </div>
+      <!--Extras-->
+      <div
+        id="extras"
+        class="theme w-full lg:w-2/5 rounded-lg lg:rounded-l-lg shadow-2xl bg-white opacity-75 mx-6 lg:mx-0 mt-10 lg:ml-1 hidden"
+      >
+        <div class="p-4 md:p-12 text-center">
+          <!-- Image for mobile view-->
+          <!-- <div
+				  class="block lg:hidden mx-auto -mt-16 h-48 w-48 bg-cover bg-center"
+				  style="
+					background-image: url('https://cdn.ipregistry.co/flags/noto/us.png');
+				  "
+				></div> -->
+          <h3 class="text-3xl font-bold pt-8 lg:pt-0">Extra Details</h3>
+          <div
+            class="mx-auto lg:mx-0 w-full pt-3 border-b-2 border-green-500 opacity-25"
+          ></div>
+          <ul class="text-left">
+            <li class="mt-2">Attacker: N/A</li>
+            <li>Abuser: N/A</li>
+            <li>Proxy: N/A</li>
+            <li>Tor: N/A</li>
+            <li>Annonymous: N/A</li>
+            <li>Cloud Provider: N/A</li>
+            <li>Bogon: N/A</li>
+            <li>Relay: N/A</li>
+            <li>Tor Exit: N/A</li>
+            <li>Response Time: N/A</li>
+          </ul>
+          <!-- Use https://simpleicons.org/ to find the svg for your preferred product -->
+        </div>
+      </div>
+
+      <!-- Pin to top right corner -->
+      <div class="absolute top-0 right-20 h-12 w-18 p-4">
+        <button class="js-toggle-info focus:outline-none">ℹ️</button>
+      </div>
+      <div class="absolute top-0 right-10 h-12 w-18 p-4">
+        <button class="js-change-token focus:outline-none">🔓</button>
+      </div>
+      <div class="absolute top-0 right-0 h-12 w-18 p-4">
+        <button class="js-change-theme focus:outline-none">🌙</button>
+      </div>
+      <!-- Pin to top left corner -->
+      <div class="flex absolute top-0 left-0 h-12 w-18 p-4">
+        <a class="flex flex-row" href="https://orbitalsolutions.ca/">
+          <img
+            style="height: 3em; width: 3em"
+            class="mr-2"
+            src="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+          />
+          <h3 id="companyTitle" class="mt-3 font-bold text-gray-900">
+            Orbital, Inc.
+          </h3>
+        </a>
+      </div>
+    </div>
+    <script>
+      //Init tooltips
+      tippy(".link", {
+        placement: "bottom",
+      });
+
+      //Toggle mode
+
+      const toggle = document.querySelector(".js-change-theme");
+      const body = document.querySelector("body");
+      const input = document.querySelector("input");
+      const themedDivs = document.querySelectorAll(".theme");
+      const isDarkMode =
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+      if (isDarkMode) {
+        toggle.innerHTML = "☀️";
+        body.classList.remove("text-gray-900");
+        body.classList.add("text-gray-100");
+        input.classList.remove("bg-white");
+        input.classList.add("bg-gray-900");
+        themedDivs.forEach((div) => {
+          div.classList.remove("bg-white");
+          div.classList.add("bg-gray-900");
+        });
+        // remove scrollbars
+        document.documentElement.style.overflow = "hidden";
+        // trigger reflow so that overflow style is applied
+        document.body.clientWidth;
+        // change scheme
+        document.documentElement.setAttribute("data-color-scheme", "dark");
+        // remove overflow style, which will bring back the scrollbar with the correct scheme
+        document.documentElement.style.overflow = "";
+      }
+
+      toggle.addEventListener("click", () => {
+        if (body.classList.contains("text-gray-900")) {
+          toggle.innerHTML = "☀️";
+          body.classList.remove("text-gray-900");
+          body.classList.add("text-gray-100");
+          input.classList.remove("bg-white");
+          input.classList.add("bg-gray-900");
+          themedDivs.forEach((div) => {
+            div.classList.remove("bg-white");
+            div.classList.add("bg-gray-900");
+          });
+          // remove scrollbars
+          document.documentElement.style.overflow = "hidden";
+          // trigger reflow so that overflow style is applied
+          document.body.clientWidth;
+          // change scheme
+          document.documentElement.setAttribute("data-color-scheme", "dark");
+          // remove overflow style, which will bring back the scrollbar with the correct scheme
+          document.documentElement.style.overflow = "";
+        } else {
+          toggle.innerHTML = "🌙";
+          body.classList.remove("text-gray-100");
+          body.classList.add("text-gray-900");
+          input.classList.remove("bg-gray-900");
+          input.classList.add("bg-white");
+          themedDivs.forEach((div) => {
+            div.classList.remove("bg-gray-900");
+            div.classList.add("bg-white");
+          });
+          // remove scrollbars
+          document.documentElement.style.overflow = "hidden";
+          // trigger reflow so that overflow style is applied
+          document.body.clientWidth;
+          // change scheme
+          document.documentElement.setAttribute("data-color-scheme", "light");
+          // remove overflow style, which will bring back the scrollbar with the correct scheme
+          document.documentElement.style.overflow = "";
+        }
+      });
+    </script>
+    <script>
+      //Init tooltips
+      tippy(".link", {
+        placement: "bottom",
+      });
+
+      //Toggle mode
+      const authToggle = document.querySelector(".js-change-token");
+
+      authToggle.addEventListener("click", () => {
+        if (authToggle.innerHTML == "🔓") {
+          //do popup
+          let token = window.prompt("Please enter your API Token:");
+          if (token != null) {
+            window.localStorage.setItem("Authorization", token);
+            //set token in session/local storage
+            authToggle.innerHTML = "🔒";
+          }
+        } else {
+          authToggle.innerHTML = "🔓";
+          //delete local/session storage
+          window.localStorage.clear();
+        }
+      });
+    </script>
+    <script>
+      const infoToggle = document.querySelector(".js-toggle-info");
+      const toggleDiv = document.getElementById("extras");
+      const networkDiv = document.getElementById("network");
+      const locationDiv = document.getElementById("location");
+      infoToggle.addEventListener("click", function () {
+        toggleDiv.classList.toggle("hidden");
+        if (toggleDiv.classList.contains("hidden")) {
+          toggleDiv.classList.replace("lg:w-1:3", "lg:w-2/5");
+          networkDiv.classList.replace("lg:w-1:3", "lg:w-2/5");
+          locationDiv.classList.replace("lg:w-1:3", "lg:w-2/5");
+          return;
+        }
+        toggleDiv.classList.replace("lg:w-2/5", "lg:w-1:3");
+        networkDiv.classList.replace("lg:w-2/5", "lg:w-1:3");
+        locationDiv.classList.replace("lg:w-2/5", "lg:w-1:3");
+      });
+    </script>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => {
+        //check if url contains ip if so then geolocate that
+        CheckToken();
+        // Get the URLSearchParams object
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams != null) {
+          // Get the value of a parameter with a specified name
+          const paramValue = urlParams.get("ip");
+          if (paramValue != null) {
+            Geolocate(paramValue);
+            return;
+          }
+        }
+        Geolocate("@me");
+      });
+      function Test() {
+        //temp until i update the api to support /me
+        const XHR = new XMLHttpRequest();
+        XHR.addEventListener("load", (event) => {
+          let data = JSON.parse(event.target.responseText);
+          if (data.ip == null || data.ip == "") {
+            console.log(event.target.responseText);
+            return;
+          }
+          Geolocate(data.ip);
+        });
+        XHR.addEventListener("error", (event) => {
+          console.log(event.target.responseText);
+        });
+        XHR.open("GET", "https://api64.ipify.org/?format=json");
+        XHR.send();
+      }
+      function CheckToken() {
+        let token = window.localStorage.getItem("Authorization");
+        if (token == null || token == "") {
+          return;
+        }
+        const authToggle = document.querySelector(".js-change-token");
+        authToggle.innerHTML = "🔒";
+      }
+      function Geolocate(ip) {
+        if (ip == null || ip == "") return;
+        const XHR = new XMLHttpRequest();
+
+        XHR.addEventListener("load", (event) => {
+          let data = JSON.parse(event.target.responseText);
+          if (data.success != null) {
+            alert(data.details);
+            return;
+          }
+          // Clear the URL parameters without reloading the page
+          history.pushState({}, document.title, window.location.pathname);
+          //console.log(data);
+          //#region Setting Data
+          const extraElems = document.querySelectorAll("#extras li");
+          const locationElems = document.querySelectorAll("#location li");
+          const networkElems = document.querySelectorAll("#network li");
+          document.getElementById("flagImg").src = data.flag;
+          const ipAddy = document.getElementById("ipAddy");
+          if (ipAddy.value == "" || ipAddy.value == null) {
+            ipAddy.value = data.ip;
+          }
+          networkElems[0].textContent = `IP Address: ${
+            data.ip == null ? "N/A" : data.ip
+          }`;
+          networkElems[1].textContent = `Hostname: ${
+            data.hostname == null ? "N/A" : data.hostname
+          }`;
+          networkElems[2].textContent = `Type: ${
+            data.type == null ? "N/A" : data.type
+          }`;
+          networkElems[3].textContent = `Organization: ${
+            data.organization == null ? "N/A" : data.organization
+          }`;
+          networkElems[4].textContent = `ISP: ${
+            data.isp == null ? "N/A" : data.isp
+          }`;
+          networkElems[5].textContent = `Domain: ${
+            data.domain == null ? "N/A" : data.domain
+          }`;
+          networkElems[6].textContent = `AS Number: ${
+            data.asnNumber == null ? "N/A" : data.asnNumber
+          }`;
+          networkElems[7].textContent = `AS Name: ${
+            data.asnName == null ? "N/A" : data.asnName
+          }`;
+          networkElems[8].textContent = `Route: ${
+            data.route == null ? "N/A" : data.route
+          }`;
+          locationElems[0].textContent = `Country: ${
+            data.country == null ? "N/A" : data.country
+          }`;
+          locationElems[1].textContent = `Region: ${
+            data.region == null ? "N/A" : data.region
+          }`;
+          locationElems[2].textContent = `District: ${
+            data.district == null ? "N/A" : data.district
+          }`;
+          locationElems[3].textContent = `City: ${
+            data.city == null ? "N/A" : data.city
+          }`;
+          extraElems[0].textContent = `Attacker: ${
+            data.attacker == null ? "N/A" : data.attacker
+          }`;
+          extraElems[1].textContent = `Abuser: ${
+            data.abuser == null ? "N/A" : data.abuser
+          }`;
+          extraElems[2].textContent = `Proxy: ${
+            data.proxy == null ? "N/A" : data.proxy
+          }`;
+          extraElems[3].textContent = `Tor: ${
+            data.tor == null ? "N/A" : data.tor
+          }`;
+          extraElems[4].textContent = `Annonymous: ${
+            data.annonymous == null ? "N/A" : data.annonymous
+          }`;
+          extraElems[5].textContent = `Cloud Provider: ${
+            data.cloudProvider == null ? "N/A" : data.cloudProvider
+          }`;
+          extraElems[6].textContent = `Bogon: ${
+            data.bogon == null ? "N/A" : data.bogon
+          }`;
+          extraElems[7].textContent = `Relay: ${
+            data.relay == null ? "N/A" : data.relay
+          }`;
+          extraElems[8].textContent = `Tor Exit: ${
+            data.torExit == null ? "N/A" : data.torExit
+          }`;
+          extraElems[9].textContent = `Response Time: ${
+            data.responseTime == null ? "N/A" : data.responseTime
+          }`;
+          //#endregion
+        });
+        XHR.addEventListener("error", (event) => {
+          console.log(event.target.responseText);
+          alert(
+            "An error occurred, if this continues to occur please contact an admin."
+          );
+        });
+        XHR.open(
+          "GET",
+          `https://api.orbitalsolutions.ca/v1/network/geolocation/${ip}`
+        );
+        //get token from local/session storage
+        let token = window.localStorage.getItem("Authorization");
+        if (token == null || token == "") {
+          token =
+            "eRk6Uf6XmTlDqdaYAd3q+R6RPugGLabPE0YEcv1Oy9F7Y/zcTaNMoXU+vjOT49u/wJZj3ZA+IcB7pWnFgvERczVGY9ODw7pthLMmorWW3wJPFZhQ6/QyL13At+7VVbXDhHTMkLafHjiFMHjogSyDFuE6722VCjbQ6tBqsOHi3Kc88JNu+9RkeBLh1s7JZtH5LQBCn363oyW+O8SnEgt4Igz2Xj5+yMxBRfkFpdFbLXB2gWbRCchxRYdyE/jbMZgPPJOfW2TqXe0rfNxUhvvovg==";
+        }
+        XHR.setRequestHeader("Authorization", token);
+        if (token == "some free token?????" || token == "" || token == null) {
+          return;
+        }
+        XHR.send();
+      }
+    </script>
+  </body>
+</html>

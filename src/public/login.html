@@ -24,7 +24,7 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Orbital, Inc." />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="Login | Orbital, Inc." />
     <meta
       name="twitter:description"
@@ -39,7 +39,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
     />
-    <meta name="theme-color" content="#3d68ff" />
+    <meta name="theme-color" content="#9333ea" />
     <meta
       name="keywords"
       content="Login, Account Access, Hosting Services, DDoS Protection, Dedicated Machines, Virtual Machines, VPS, Layer 4 Protection, Layer 7 Protection"
@@ -65,7 +65,7 @@
     <link
       rel="mask-icon"
       href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
-      color="#5bbad5"
+      color="#9333ea"
     />
     <meta name="msapplication-TileColor" content="#00aba9" />
     <link
@@ -111,6 +111,7 @@
   </head>
 
   <body
+    class="bg-gray-50 dark:bg-gray-900"
     :class="{'overflow-hidden': isNavbarOpen, 'overflow-y-auto': !isNavbarOpen}"
   >
     <div
@@ -133,7 +134,7 @@
       <!--Login-->
       <div class="flex items-center min-h-screen px-6">
         <div
-          class="flex-1 h-full max-w-2xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
+          class="mt-32 mb-8 flex-1 h-full max-w-2xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
         >
           <div class="flex flex-col overflow-y-auto md:flex-row">
             <div class="flex items-center justify-center p-6 sm:p-12 w-full">
@@ -210,7 +211,7 @@
                 <p class="mt-4">
                   <a
                     class="text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline"
-                    href="./forgot-password.html"
+                    href="./forgot-password"
                   >
                     Forgot your password?
                   </a>
@@ -218,7 +219,7 @@
                 <p class="mt-1">
                   <a
                     class="text-sm font-medium text-primary-600 dark:text-primary-400 hover:underline"
-                    href="./register.html"
+                    href="./register"
                   >
                     Register an account
                   </a>
@@ -230,6 +231,6 @@
       </div>
     </div>
     <div id="footerContainer"></div>
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/main/main.js"></script>
   </body>
 </html>
