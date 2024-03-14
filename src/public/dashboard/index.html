@@ -1,77 +1,90 @@
 <!DOCTYPE html>
 <html x-data="data()" lang="en">
   <head>
-    <!--#region Meta Data-->
+    <!--METADATA-->
     <meta charset="UTF-8" />
-    <title>Dashboard | Orbital, Inc.</title>
+    <title>Dashboard Home | Orbital, Inc.</title>
     <meta
       name="description"
-      content="Access your Orbital, Inc. dashboard to manage advanced DDoS protection settings, monitor your hosting solutions, and customize your security preferences. Log in now to optimize your digital defense."
-    />
-    <meta property="og:title" content="Dashboard | Orbital, Inc." />
-    <meta
-      property="og:description"
-      content="Securely manage your Layer 4 & 7 DDoS protection, hosting services, and anycast network settings through the Orbital, Inc. dashboard. Tailor your security solutions to fit your needs."
+      content="Access your Orbital, Inc. dashboard for comprehensive insights into your hosting services, including dedicated machines, VPS, and DDoS protection management."
     />
     <meta property="og:url" content="https://orbitalsolutions.ca/dashboard" />
-    <meta property="og:site_name" content="Orbital, Inc." />
+    <meta property="og:title" content="Dashboard Home | Orbital, Inc." />
+    <meta
+      property="og:description"
+      content="Your Orbital, Inc. dashboard provides a central place for managing your hosting solutions and services. Log in for detailed reports, settings, and support."
+    />
     <meta
       property="og:image"
-      content="https://orbitalsolutions.ca/assets/img/banner-nebula-mods.png"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
     />
     <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta property="og:site_name" content="Orbital, Inc." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Dashboard Home | Orbital, Inc." />
     <meta
       name="twitter:description"
-      content="Log in to the Orbital, Inc. dashboard to customize and manage your DDoS protection and hosting services. Experience tailored security solutions designed for your infrastructure."
+      content="Access your Orbital, Inc. dashboard for detailed management of your hosting services. Everything you need, all in one place."
     />
-    <meta
-      property="twitter:url"
-      content="https://orbitalsolutions.ca/dashboard"
-    />
+    <meta name="twitter:url" content="https://orbitalsolutions.ca/dashboard" />
     <meta
       name="twitter:image"
-      content="https://orbitalsolutions.ca/assets/img/banner-nebula-mods.png"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logol.png"
     />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
     />
-    <meta name="theme-color" content="#3d68ff" />
+    <meta name="theme-color" content="#9333ea" />
     <meta
       name="keywords"
-      content="DDoS Protection, Hosting Services, Security Dashboard, Anycast Network, Virtual Machines, Dedicated Machines"
+      content="Orbital Dashboard, Hosting Management, DDoS Protection, Dedicated Machines, VPS, User Control Panel, Hosting Services"
     />
     <meta name="author" content="Orbital, Inc." />
     <link
       rel="apple-touch-icon"
       sizes="128x128"
-      href="https://orbitalsolutions.ca/assets/img/banner-nebula-mods.png"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-128.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://orbitalsolutions.ca/assets/img/banner-nebula-mods.png"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-32.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="https://orbitalsolutions.ca/assets/img/banner-nebula-mods.png"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-16.png"
     />
     <link
       rel="mask-icon"
-      href="https://orbitalsolutions.ca/assets/img/banner-nebula-mods.png"
-      color="#5bbad5"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+      color="#9333ea"
     />
     <meta name="msapplication-TileColor" content="#00aba9" />
     <link
       rel="shortcut icon"
       type="image/x-icon"
-      href="https://orbitalsolutions.ca/assets/img/banner-nebula-mods.png"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FXH2BSJD5X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FXH2BSJD5X");
+    </script>
+    <!--METADATA-->
 
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
@@ -134,7 +147,7 @@
         <div id="headerContainer"></div>
         <!--Content-->
         <main class="h-full overflow-y-auto">
-          <div class="container grid px-3 mx-auto">
+          <div class="container grid p-6 mx-auto">
             <!--Content Header-->
             <h2
               class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
@@ -264,7 +277,7 @@
                 class="hidden min-w-0 p-4 bg-white rounded-lg ring-1 ring-black ring-opacity-5 dark:bg-gray-800"
               >
                 <h4 class="mb-4 font-semibold text-gray-600 dark:text-gray-300">
-                  More News
+                  Public Beta Launched
                 </h4>
                 <p class="text-gray-600 dark:text-gray-400">
                   Thus is the latest news from the Orbital, Inc.
@@ -273,14 +286,21 @@
               <div
                 class="min-w-0 p-4 text-white rounded-lg ring-1 ring-black ring-opacity-5 bg-primary-600"
               >
-                <h4 class="mb-4 font-semibold">More News</h4>
-                <p>This is the latest news from the Orbital, Inc.</p>
+                <h4 class="mb-4 font-semibold">
+                  Public Beta Launched • March 1st, 2024
+                </h4>
+                <p>
+                  The official public beta for Orbital, Inc. has been launched.
+                  We are excited to bring you the latest in hosting solutions
+                  and DDoS protection. We are looking forward to your feedback
+                  and suggestions. Thank you for your support.
+                </p>
               </div>
             </div>
           </div>
         </main>
       </div>
     </div>
-    <script src="../assets/js/dashboard.js"></script>
+    <script src="../assets/js/dashboard/dashboard.js"></script>
   </body>
 </html>

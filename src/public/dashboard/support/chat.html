@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html x-data="data()" lang="en">
+  <head>
+    <!--METADATA-->
+    <meta charset="UTF-8" />
+    <title>View Ticket | Orbital, Inc. Dashboard</title>
+    <meta
+      name="description"
+      content="View and manage your support tickets directly from the Orbital, Inc. dashboard. Reply to ongoing discussions and track the status of your queries in real-time."
+    />
+    <meta
+      property="og:url"
+      content="https://orbitalsolutions.ca/dashboard/support/ticket"
+    />
+    <meta property="og:title" content="View Ticket | Orbital, Inc. Dashboard" />
+    <meta
+      property="og:description"
+      content="Stay updated on your support requests with the Orbital, Inc. dashboard. View ticket details, engage in conversations with our support team, and track progress efficiently."
+    />
+    <meta
+      property="og:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Orbital, Inc." />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="View Ticket | Orbital, Inc. Dashboard"
+    />
+    <meta
+      name="twitter:description"
+      content="Easily manage and reply to your support tickets through the Orbital, Inc. dashboard. Keep track of your support interactions and get timely assistance."
+    />
+    <meta
+      name="twitter:url"
+      content="https://orbitalsolutions.ca/dashboard/support/ticket"
+    />
+    <meta
+      name="twitter:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#9333ea" />
+    <meta
+      name="keywords"
+      content="Support Tickets, Dashboard Ticket Management, User Support, Ticket Tracking, Orbital, Inc."
+    />
+    <meta name="author" content="Orbital, Inc." />
+    <link
+      rel="apple-touch-icon"
+      sizes="128x128"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+      color="#9333ea"
+    />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FXH2BSJD5X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FXH2BSJD5X");
+    </script>
+    <!--METADATA-->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/tailwind.output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <script src="../../assets/js/utilities.js" defer></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="../../assets/js/init-alpine.js"></script>
+  </head>
+
+  <body>
+    <div
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
+    >
+      <div
+        class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
+      ></div>
+      <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
+    </div>
+    <div
+      class="flex h-screen bg-gray-50 dark:bg-gray-900"
+      :class="{ 'overflow-hidden': isSideMenuOpen }"
+    >
+      <div id="sidebarDesktopContainer"></div>
+
+      <!-- Backdrop -->
+      <div
+        x-show="isSideMenuOpen"
+        x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
+      ></div>
+
+      <div id="sidebarMobileContainer"></div>
+
+      <div id="modalContainer"></div>
+
+      <!-- You need focus-trap.js to make the modal accessible -->
+      <script src="../../assets/js/focus-trap.js" defer></script>
+
+      <!--Body-->
+      <div class="flex flex-col flex-1 w-full bg-gray-50 dark:bg-gray-900">
+        <!--Header-->
+        <div id="headerContainer"></div>
+        <!--Content-->
+        <main class="w-full flex items-center justify-center">
+          <div
+            class="flex-1 h-full mt-4 p-6 mx-auto overflow-hidden bg-gray-50 dark:bg-gray-900"
+          >
+            <!--Content Header-->
+            <div class="flex justify-between flow-row">
+              <h2
+                class="text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              >
+                Ticket #12345
+              </h2>
+            </div>
+            <div class="flex justify-between flow-row items-center">
+              <button
+                class="mx-2 block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary-600 border border-transparent rounded-lg active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring"
+                onclick="CloseTicketAsync()"
+              >
+                Close Ticket
+              </button>
+              <button
+                class="mx-2 block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-primary-600 border border-transparent rounded-lg active:bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring"
+                onclick="window.location.href = 'https://orbitalsolutions.ca/dashboard/support/support'"
+              >
+                Back to Tickets
+              </button>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../../assets/js/dashboard/dashboard.js"></script>
+    <script src="../../assets/js/dashboard/support/ticket-chat.js"></script>
+  </body>
+</html>

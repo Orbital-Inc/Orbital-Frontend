@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html x-data="data()" lang="en">
+  <head>
+    <!--METADATA-->
+    <meta charset="UTF-8" />
+    <title>Dedicated Machines Overview | Orbital, Inc. Dashboard</title>
+    <meta
+      name="description"
+      content="Manage and view all your dedicated machines on the Orbital, Inc. dashboard. Get an overview of each server's performance, configurations, and access direct management options."
+    />
+    <meta
+      property="og:url"
+      content="https://orbitalsolutions.ca/dashboard/servers/dedicateds"
+    />
+    <meta
+      property="og:title"
+      content="Dedicated Machines Overview | Orbital, Inc. Dashboard"
+    />
+    <meta
+      property="og:description"
+      content="Overview your entire fleet of dedicated machines with the Orbital, Inc. dashboard. Access detailed information, manage server settings, and monitor performance across all your servers."
+    />
+    <meta
+      property="og:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Orbital, Inc." />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="Dedicated Machines Overview | Orbital, Inc. Dashboard"
+    />
+    <meta
+      name="twitter:description"
+      content="Easily manage your dedicated machines through the Orbital, Inc. dashboard. View comprehensive overviews, tweak configurations, and ensure optimal performance for all your servers."
+    />
+    <meta
+      name="twitter:url"
+      content="https://orbitalsolutions.ca/dashboard/servers/dedicateds"
+    />
+    <meta
+      name="twitter:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#9333ea" />
+    <meta
+      name="keywords"
+      content="Dedicated Machines Overview, Server Management, Hosting Solutions, Performance Monitoring, Orbital, Inc., Dashboard"
+    />
+    <meta name="author" content="Orbital, Inc." />
+    <link
+      rel="apple-touch-icon"
+      sizes="128x128"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+      color="#9333ea"
+    />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FXH2BSJD5X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FXH2BSJD5X");
+    </script>
+    <!--METADATA-->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/tailwind.output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <script src="../../assets/js/utilities.js" defer></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="../../assets/js/init-alpine.js"></script>
+  </head>
+
+  <body>
+    <div
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
+    >
+      <div
+        class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
+      ></div>
+      <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
+    </div>
+    <div
+      class="flex h-screen bg-gray-50 dark:bg-gray-900 main-content blur-md"
+      :class="{ 'overflow-hidden': isSideMenuOpen }"
+    >
+      <div id="sidebarDesktopContainer"></div>
+
+      <!-- Backdrop -->
+      <div
+        x-show="isSideMenuOpen"
+        x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
+      ></div>
+
+      <div id="sidebarMobileContainer"></div>
+
+      <div id="modalContainer"></div>
+
+      <!-- You need focus-trap.js to make the modal accessible -->
+      <script src="../../assets/js/focus-trap.js" defer></script>
+
+      <!--Body-->
+      <div class="flex flex-col flex-1 w-full">
+        <!--Header-->
+        <div id="headerContainer"></div>
+        <!--Content-->
+        <main class="h-full overflow-y-auto">
+          <div class="container grid px-3 mx-auto pb-10">
+            <!--Content Header-->
+            <h2
+              class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+            >
+              Dedicated Machines
+            </h2>
+
+            <!--! General elements -->
+            <h4
+              class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
+            >
+              Elements
+            </h4>
+
+            <div
+              class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800"
+            >
+              <!-- Input[ype="text"] -->
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">Name</span>
+                <input
+                  type="text"
+                  class="block w-full mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                  placeholder="Jane Doe"
+                />
+              </label>
+
+              <!-- Input[ype="email"] -->
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400"
+                  >Email address</span
+                >
+                <input
+                  type="email"
+                  class="block w-full mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                  placeholder="john@example.com"
+                />
+              </label>
+
+              <div class="mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400"
+                  >Account Type</span
+                >
+                <div class="mt-2">
+                  <label
+                    class="inline-flex items-center text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="radio"
+                      class="placeholder-gray-400 border-gray-300 shadow-sm text-primary-600 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                      name="accountType"
+                      value="personal"
+                    />
+                    <span class="ml-2">Personal</span>
+                  </label>
+                  <label
+                    class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400"
+                  >
+                    <input
+                      type="radio"
+                      class="placeholder-gray-400 border-gray-300 shadow-sm text-primary-600 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                      name="accountType"
+                      value="busines"
+                    />
+                    <span class="ml-2">Business</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Input[ype="date"] -->
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400"
+                  >When is your event?</span
+                >
+                <input
+                  type="date"
+                  class="block w-full mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                />
+              </label>
+
+              <!-- Select -->
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400"
+                  >What type of event is it?</span
+                >
+                <select
+                  class="block w-full mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                >
+                  <option>Corporate event</option>
+                  <option>Wedding</option>
+                  <option>Birthday</option>
+                  <option>Other</option>
+                </select>
+              </label>
+
+              <!-- Textarea -->
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400"
+                  >Additional details</span
+                >
+                <textarea
+                  class="block w-full mt-1 placeholder-gray-400 border-gray-300 rounded-md shadow-sm focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-300 dark:focus:ring-gray focus-within:text-primary-600 dark:focus-within:text-primary-400 dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                  rows="3"
+                ></textarea>
+              </label>
+
+              <div class="block mt-2 text-sm">
+                <label class="inline-flex items-center dark:text-gray-400">
+                  <input
+                    type="checkbox"
+                    class="placeholder-gray-400 border-gray-300 rounded shadow-sm text-primary-600 focus:border-primary-300 focus:ring focus:ring-primary-200 focus:ring-opacity-50 dark:border-gray-600 dark:bg-gray-700 dark:focus:ring-gray dark:placeholder-gray-500 dark:focus:placeholder-gray-600 focus:placeholder-gray-300"
+                    checked=""
+                  />
+                  <span class="ml-2"
+                    >I agree to the
+                    <span class="underline">privacy policy</span></span
+                  >
+                </label>
+              </div>
+            </div>
+            <!-- With actions -->
+            <h4
+              class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
+            >
+              Table with actions
+            </h4>
+            <div
+              class="w-full overflow-hidden rounded-lg ring-1 ring-black ring-opacity-5"
+            >
+              <div class="w-full overflow-x-auto">
+                <table class="w-full whitespace-no-wrap">
+                  <thead>
+                    <tr
+                      class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800"
+                    >
+                      <th class="px-4 py-3">Client</th>
+                      <th class="px-4 py-3">Amount</th>
+                      <th class="px-4 py-3">Status</th>
+                      <th class="px-4 py-3">Date</th>
+                      <th class="px-4 py-3">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800"
+                  >
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Hans Burger</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              10x Developer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">$ 863.45</td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                              ></path>
+                            </svg>
+                          </button>
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Delete"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&facepad=3&fit=facearea&s=707b9c33066bf8808c934c8ab394dff6"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Jolina Angelie</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Unemployed
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">$ 369.95</td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-full dark:text-white dark:bg-orange-600"
+                        >
+                          Pending
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                              ></path>
+                            </svg>
+                          </button>
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Delete"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1551069613-1904dbdcda11?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Sarah Curry</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Designer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">$ 86.00</td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700"
+                        >
+                          Denied
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                              ></path>
+                            </svg>
+                          </button>
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Delete"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1551006917-3b4c078c47c9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Rulia Joberts</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Actress
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">$ 1276.45</td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                              ></path>
+                            </svg>
+                          </button>
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Delete"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1546456073-6712f79251bb?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Wenzel Dashington</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Actor
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">$ 863.45</td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-gray-700 bg-gray-100 rounded-full dark:text-gray-100 dark:bg-gray-700"
+                        >
+                          Expired
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                              ></path>
+                            </svg>
+                          </button>
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Delete"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1502720705749-871143f0e671?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=b8377ca9f985d80264279f277f3a67f5"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Dave Li</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Influencer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">$ 863.45</td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                              ></path>
+                            </svg>
+                          </button>
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Delete"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Maria Ramovic</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Runner
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">$ 863.45</td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                              ></path>
+                            </svg>
+                          </button>
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Delete"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/photo-1566411520896-01e7ca4726af?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Hitney Wouston</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              Singer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">$ 863.45</td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                              ></path>
+                            </svg>
+                          </button>
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Delete"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+
+                    <tr class="text-gray-700 dark:text-gray-400">
+                      <td class="px-4 py-3">
+                        <div class="flex items-center text-sm">
+                          <!-- Avatar with inset shadow -->
+                          <div
+                            class="relative hidden w-8 h-8 mr-3 rounded-full md:block"
+                          >
+                            <img
+                              class="object-cover w-full h-full rounded-full"
+                              src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+                              alt=""
+                              loading="lazy"
+                            />
+                            <div
+                              class="absolute inset-0 rounded-full shadow-inner"
+                              aria-hidden="true"
+                            ></div>
+                          </div>
+                          <div>
+                            <p class="font-semibold">Hans Burger</p>
+                            <p class="text-xs text-gray-600 dark:text-gray-400">
+                              10x Developer
+                            </p>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="px-4 py-3 text-sm">$ 863.45</td>
+                      <td class="px-4 py-3 text-xs">
+                        <span
+                          class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100"
+                        >
+                          Approved
+                        </span>
+                      </td>
+                      <td class="px-4 py-3 text-sm">6/10/2020</td>
+                      <td class="px-4 py-3">
+                        <div class="flex items-center space-x-4 text-sm">
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Edit"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z"
+                              ></path>
+                            </svg>
+                          </button>
+                          <button
+                            class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 rounded-lg text-primary-600 dark:text-gray-400 focus:outline-none focus:ring-gray"
+                            aria-label="Delete"
+                          >
+                            <svg
+                              class="w-5 h-5"
+                              aria-hidden="true"
+                              fill="currentColor"
+                              viewBox="0 0 20 20"
+                            >
+                              <path
+                                fill-rule="evenodd"
+                                d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z"
+                                clip-rule="evenodd"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div
+                class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800"
+              >
+                <span class="flex items-center col-span-3">
+                  Showing 21-30 of 100
+                </span>
+                <span class="col-span-2"></span>
+                <!-- Pagination -->
+                <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
+                  <nav aria-label="Table navigation">
+                    <ul class="inline-flex items-center">
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md rounded-l-lg focus:outline-none focus:ring"
+                          aria-label="Previous"
+                        >
+                          <svg
+                            class="w-4 h-4 fill-current"
+                            aria-hidden="true"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:ring"
+                        >
+                          1
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:ring"
+                        >
+                          2
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 text-white transition-colors duration-150 border border-r-0 rounded-md border-primary-600 bg-primary-600 focus:outline-none focus:ring"
+                        >
+                          3
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:ring"
+                        >
+                          4
+                        </button>
+                      </li>
+                      <li>
+                        <span class="px-3 py-1">...</span>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:ring"
+                        >
+                          8
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md focus:outline-none focus:ring"
+                        >
+                          9
+                        </button>
+                      </li>
+                      <li>
+                        <button
+                          class="px-3 py-1 rounded-md rounded-r-lg focus:outline-none focus:ring"
+                          aria-label="Next"
+                        >
+                          <svg
+                            class="w-4 h-4 fill-current"
+                            aria-hidden="true"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                              clip-rule="evenodd"
+                              fill-rule="evenodd"
+                            ></path>
+                          </svg>
+                        </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </span>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+
+    <script src="../../assets/js/dashboard/dashboard.js"></script>
+    <script src="../../assets/js/dashboard/servers/dedicated.js"></script>
+  </body>
+</html>

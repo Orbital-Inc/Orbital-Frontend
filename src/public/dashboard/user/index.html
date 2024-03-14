@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html x-data="data()" lang="en">
+  <head>
+    <!--METADATA-->
+    <meta charset="UTF-8" />
+    <title>User Settings | Orbital, Inc. Dashboard</title>
+    <meta
+      name="description"
+      content="Manage your account settings, personal preferences, and security options on the Orbital, Inc. dashboard. Customize your hosting experience to suit your needs."
+    />
+    <meta
+      property="og:url"
+      content="https://orbitalsolutions.ca/dashboard/user/settings"
+    />
+    <meta
+      property="og:title"
+      content="User Settings | Orbital, Inc. Dashboard"
+    />
+    <meta
+      property="og:description"
+      content="Update your personal and account settings on the Orbital, Inc. dashboard to enhance your hosting service experience. Access privacy settings, account preferences, and more."
+    />
+    <meta
+      property="og:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Orbital, Inc." />
+    <meta name="twitter:card" content="summary" />
+    <meta
+      name="twitter:title"
+      content="User Settings | Orbital, Inc. Dashboard"
+    />
+    <meta
+      name="twitter:description"
+      content="Easily manage your account and personal settings on the Orbital, Inc. dashboard. Tailor your hosting services to your unique needs and preferences."
+    />
+    <meta
+      name="twitter:url"
+      content="https://orbitalsolutions.ca/dashboard/user/settings"
+    />
+    <meta
+      name="twitter:image"
+      content="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <meta name="theme-color" content="#9333ea" />
+    <meta
+      name="keywords"
+      content="User Settings, Account Management, Hosting Preferences, Security Settings, Orbital Dashboard, Personalization"
+    />
+    <meta name="author" content="Orbital, Inc." />
+    <link
+      rel="apple-touch-icon"
+      sizes="128x128"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-128.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo-16.png"
+    />
+    <link
+      rel="mask-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+      color="#9333ea"
+    />
+    <meta name="msapplication-TileColor" content="#00aba9" />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://orbitalsolutions.ca/assets/img/orbital-logo.png"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-FXH2BSJD5X"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-FXH2BSJD5X");
+    </script>
+    <!--METADATA-->
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../assets/css/tailwind.output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
+    <script src="../../assets/js/utilities.js" defer></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <script src="../../assets/js/init-alpine.js"></script>
+  </head>
+
+  <body>
+    <div
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
+    >
+      <div
+        class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
+      ></div>
+      <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
+    </div>
+    <div
+      class="flex h-screen bg-gray-50 dark:bg-gray-900"
+      :class="{ 'overflow-hidden': isSideMenuOpen }"
+    >
+      <div id="sidebarDesktopContainer"></div>
+
+      <!-- Backdrop -->
+      <div
+        x-show="isSideMenuOpen"
+        x-transition:enter="transition ease-in-out duration-150"
+        x-transition:enter-start="opacity-0"
+        x-transition:enter-end="opacity-100"
+        x-transition:leave="transition ease-in-out duration-150"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed inset-0 z-10 flex items-end bg-black bg-opacity-50 sm:items-center sm:justify-center"
+      ></div>
+
+      <div id="sidebarMobileContainer"></div>
+
+      <div id="modalContainer"></div>
+
+      <!-- You need focus-trap.js to make the modal accessible -->
+      <script src="../../assets/js/focus-trap.js" defer></script>
+
+      <!--Body-->
+      <div class="flex flex-col flex-1 w-full">
+        <!--Header-->
+        <div id="headerContainer"></div>
+        <!--Content-->
+        <main class="h-full overflow-y-auto">
+          <div class="container grid p-6 mx-auto">
+            <!--Content Header-->
+            <div class="flex justify-between flow-row">
+              <h2
+                class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200"
+              >
+                User Settings
+              </h2>
+            </div>
+            <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                class="md:mr-2 my-2 px-4 py-3 w-full bg-white rounded-lg shadow-md dark:bg-gray-800"
+              >
+                <h1 class="font-bold text-gray-900 dark:text-gray-100">
+                  User Details
+                </h1>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Username: Nebula</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Name: N/A</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Email: nebula@orbitalsolutions.ca</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Account Type: CEO</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Password: ****</span
+                  >
+                </label>
+              </div>
+              <div
+                class="md:ml-2 my-2 px-4 py-3 w-full bg-white rounded-lg shadow-md dark:bg-gray-800"
+              >
+                <h1 class="font-bold text-gray-900 dark:text-gray-100">
+                  Membership Details
+                </h1>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Membership Type: Premium</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Membership Expiry: Never</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"></span>
+                </label>
+              </div>
+              <div
+                class="md:mr-2 my-2 px-4 py-3 max-h-32 w-full bg-white rounded-lg shadow-md dark:bg-gray-800"
+              >
+                <h1 class="font-bold text-gray-900 dark:text-gray-100">
+                  Additional Details
+                </h1>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Account Creation Date: 01/01/2024</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Profile Picture:
+                    https://orbitalsolutions.ca/content/images/logo.png</span
+                  >
+                </label>
+              </div>
+              <div
+                class="md:ml-2 my-2 px-4 py-3 w-full bg-white rounded-lg shadow-md dark:bg-gray-800"
+              >
+                <h1 class="font-bold text-gray-900 dark:text-gray-100">
+                  Services Overview
+                </h1>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >IP Address Amount: 69</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Virtual Machine Amount: 69</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Dedicated Machine Amount: 69</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Virtual Machine Amount: 69</span
+                  >
+                </label>
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"></span>
+                </label>
+              </div>
+              <div
+                class="hidden md:ml-2 my-2 px-4 py-3 max-h-32 w-full bg-white rounded-lg shadow-md dark:bg-gray-800"
+              >
+                <h1 class="font-bold text-gray-900 dark:text-gray-100">
+                  Image Uploader Details
+                </h1>
+
+                <label class="block mt-4 text-sm">
+                  <span class="text-gray-700 dark:text-gray-400"
+                    >Title: Orbital, Inc.</span
+                  >
+                </label>
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <script src="../../assets/js/dashboard/dashboard.js"></script>
+  </body>
+</html>
