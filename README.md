@@ -1,53 +1,37 @@
-# Windmill Dashboard
+# Orbital Solutions Frontend
 
-A multi theme, completely accessible, with components and pages examples, ready for production dashboard.
+Welcome to the Orbital Solutions Frontend repository. This project started its journey as an implementation of the Windmill Dashboard, an open-source template known for its intuitive design and robust feature set. Over time, it has evolved significantly to meet the specific needs of Orbital Solutions, incorporating a range of custom features, enhancements, and optimizations that make it uniquely suited to our operations.
 
-🧪 [See it live](https://windmillui.com/dashboard-html)
+## Features
 
-- 🦮 Thoroughly accessible
-- 🌗 Light and dark themes
-- 💅 Styled with Tailwind CSS
-- 🧩 Various components
-- ❄ [React version](https://windmillui.com/dashboard-react)
+- **Customized User Interface:** Tailored design elements to match the Orbital Solutions brand identity, providing a seamless user experience.
+- **Enhanced Performance:** Optimizations made to improve speed and efficiency, ensuring smooth operation even under heavy loads.
+- **Advanced Functionalities:** Integration of specialized modules and features developed to support the unique workflows of Orbital Solutions.
+- **Responsive Design:** Ensures a consistent and accessible experience across various devices and screen sizes.
 
-## 🚀 Usage
+## Getting Started
 
-Clone or download this repo and everything you need is inside the `public` folder.
+To get started with the Orbital Solutions Frontend, please follow the instructions below:
 
-## 🦮 Accessibility
+1. Clone the repository:
+   ```
+   git clone https://github.com/Orbital-Inc/orbitalsolutions-frontend.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd orbitalsolutions-frontend
+   ```
 
-This dashboard was developed with a11y in mind since the beginning.
+## Acknowledgements
 
-1. Every text passes the WCAG Level AA (at least)
-2. It is completely keyboard navigable
-3. I actually used [NVDA](https://www.nvaccess.org/) to read my screen during development
+We owe a debt of gratitude to the creators of the Windmill Dashboard for providing the foundation upon which our frontend has been built. Their open-source project served as an excellent starting point and continues to inspire our development efforts.
 
-Everybody can benefit with good accessibility practices, like the modal, for example ([test it live](https://windmill-dashboard.vercel.app/modals.html)). It uses focus trap techniques to not loose focus when navigating via keyboard and thinking of mobile users with large screen devices, it is placed in the bottom of the screen.
+For more information about the original Windmill Dashboard, visit [their GitHub repository](https://github.com/estevanmaito/windmill-dashboard).
 
-## 🌗 Multi theme
+## Contributing
 
-It uses Tailwind CSS for styling, and some may say it is totally biased, but it uses the most simple theming plugin there is for it, [Tailwind Multi Theme plugin](https://github.com/estevanmaito/tailwindcss-multi-theme#tailwind-css-multi-theme) (made by me). The result is that, as with regular Tailwind, you have control over every style in your pages.
+We welcome contributions to the Orbital Solutions Frontend! If you have suggestions for improvements or want to contribute to the development, please feel free to fork the repository and submit a pull request.
 
-You can see that by navigating through the examples, changing theme and going visiting pages like login or create account, to see different images served for different themes.
+## License
 
-Theme auto detection based on user's OS preferences and local settings storage are enabled by default.
-
-## 🔮 Future
-
-TODO
-
-- [ ] Make charts accessible through hidden data
-- [ ] Refactor and split `shadow-outline-<color>` plugin
-- [ ] Paginate tables with Alpine
-- [ ] Focus first element when dropdowns are opened
-
-## OSS used
-
-- [Tailwind CSS](https://tailwindcss.com/)
-- [Tailwind Multi Theme](https://github.com/estevanmaito/tailwindcss-multi-theme)
-- [Tailwind Custom Forms](https://github.com/tailwindlabs/tailwindcss-custom-forms)
-- [PostCSS](https://postcss.org/)
-- [Alpine.js](https://github.com/alpinejs/alpine)
-- [Chart.js (charts)](https://www.chartjs.org/)
-- [UI Faces (avatars)](https://uifaces.co/)
-- [Heroicons (icons)](https://heroicons.dev/)
+The Orbital Solutions Frontend is released under the [MIT License](LICENSE).
