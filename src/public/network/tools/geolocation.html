@@ -410,7 +410,7 @@
     <script>
       window.addEventListener("DOMContentLoaded", () => {
         //check if url contains ip if so then geolocate that
-        CheckToken();
+        //CheckToken();
         // Get the URLSearchParams object
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams != null) {
@@ -420,8 +420,10 @@
             Geolocate(paramValue);
             return;
           }
+          return;
         }
-        Geolocate("@me");
+        Test();
+        //Geolocate("@me");
       });
       function Test() {
         //temp until i update the api to support /me
@@ -466,12 +468,12 @@
           const locationElems = document.querySelectorAll("#location li");
           const networkElems = document.querySelectorAll("#network li");
           document.getElementById("flagImg").src = data.flag;
-          const ipAddy = document.getElementById("ipAddy");
+          const ipAddy = document.getElementById("ipAddress");
           if (ipAddy.value == "" || ipAddy.value == null) {
-            ipAddy.value = data.ip;
+            ipAddy.value = data.ipAddress;
           }
           networkElems[0].textContent = `IP Address: ${
-            data.ip == null ? "N/A" : data.ip
+            data.ipAddress == null ? "N/A" : data.ipAddress
           }`;
           networkElems[1].textContent = `Hostname: ${
             data.hostname == null ? "N/A" : data.hostname
@@ -489,10 +491,10 @@
             data.domain == null ? "N/A" : data.domain
           }`;
           networkElems[6].textContent = `AS Number: ${
-            data.asnNumber == null ? "N/A" : data.asnNumber
+            data.asNumber == null ? "N/A" : data.asNumber
           }`;
           networkElems[7].textContent = `AS Name: ${
-            data.asnName == null ? "N/A" : data.asnName
+            data.asName == null ? "N/A" : data.asName
           }`;
           networkElems[8].textContent = `Route: ${
             data.route == null ? "N/A" : data.route
@@ -521,8 +523,8 @@
           extraElems[3].textContent = `Tor: ${
             data.tor == null ? "N/A" : data.tor
           }`;
-          extraElems[4].textContent = `Annonymous: ${
-            data.annonymous == null ? "N/A" : data.annonymous
+          extraElems[4].textContent = `Anonymous: ${
+            data.anonymous == null ? "N/A" : data.anonymous
           }`;
           extraElems[5].textContent = `Cloud Provider: ${
             data.cloudProvider == null ? "N/A" : data.cloudProvider
@@ -552,15 +554,15 @@
           `https://api.orbitalsolutions.ca/v1/network/geolocation/${ip}`
         );
         //get token from local/session storage
-        let token = window.localStorage.getItem("Authorization");
-        if (token == null || token == "") {
-          token =
-            "eRk6Uf6XmTlDqdaYAd3q+R6RPugGLabPE0YEcv1Oy9F7Y/zcTaNMoXU+vjOT49u/wJZj3ZA+IcB7pWnFgvERczVGY9ODw7pthLMmorWW3wJPFZhQ6/QyL13At+7VVbXDhHTMkLafHjiFMHjogSyDFuE6722VCjbQ6tBqsOHi3Kc88JNu+9RkeBLh1s7JZtH5LQBCn363oyW+O8SnEgt4Igz2Xj5+yMxBRfkFpdFbLXB2gWbRCchxRYdyE/jbMZgPPJOfW2TqXe0rfNxUhvvovg==";
-        }
-        XHR.setRequestHeader("Authorization", token);
-        if (token == "some free token?????" || token == "" || token == null) {
-          return;
-        }
+        // let token = window.localStorage.getItem("Authorization");
+        // if (token == null || token == "") {
+        //   token =
+        //     "eRk6Uf6XmTlDqdaYAd3q+R6RPugGLabPE0YEcv1Oy9F7Y/zcTaNMoXU+vjOT49u/wJZj3ZA+IcB7pWnFgvERczVGY9ODw7pthLMmorWW3wJPFZhQ6/QyL13At+7VVbXDhHTMkLafHjiFMHjogSyDFuE6722VCjbQ6tBqsOHi3Kc88JNu+9RkeBLh1s7JZtH5LQBCn363oyW+O8SnEgt4Igz2Xj5+yMxBRfkFpdFbLXB2gWbRCchxRYdyE/jbMZgPPJOfW2TqXe0rfNxUhvvovg==";
+        // }
+        // XHR.setRequestHeader("Authorization", token);
+        // if (token == "some free token?????" || token == "" || token == null) {
+        //   return;
+        // }
         XHR.send();
       }
     </script>

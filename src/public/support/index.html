@@ -87,6 +87,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+    <link rel="stylesheet" href="../assets/css/custom.css" />
 
     <link
       rel="stylesheet"
@@ -107,7 +108,7 @@
     :class="{'overflow-hidden': isNavbarOpen, 'overflow-y-auto': !isNavbarOpen}"
   >
     <div
-      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-50 space-y-4"
     >
       <div
         class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
@@ -115,7 +116,7 @@
       <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
     </div>
 
-    <div class="bg-gray-50 dark:bg-gray-900 main-content blur-md">
+    <div class="bg-gray-50 dark:bg-gray-900 main-content">
       <div id="headerContainer"></div>
 
       <div id="modalContainer"></div>
@@ -128,37 +129,124 @@
         class="flex items-center min-h-screen px-6 bg-gray-50 dark:bg-gray-900"
       >
         <div class="w-full mb-8 mt-32 flex items-center justify-center">
-          <div
-            class="flex-1 h-full max-w-2xl p-6 mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
-          >
-            <div class="text-center">
-              <h1 class="text-3xl font-bold text-gray-900 dark:text-gray-100">
-                Discord
-              </h1>
-              <p class="text-gray-700 dark:text-gray-200">
-                Join our community and stay up-to-date with the latest news and
-                announcements.
-              </p>
-            </div>
-            <div class="flex items-center justify-center mt-4">
-              <iframe
-                src="https://discord.com/widget?id=993960228913676308&theme=dark"
-                width="350"
-                height="500"
-                allowtransparency="true"
-                frameborder="0"
-                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-                x-show="dark"
-              ></iframe>
-              <iframe
-                src="https://discord.com/widget?id=993960228913676308&theme=light"
-                width="350"
-                height="500"
-                allowtransparency="true"
-                frameborder="0"
-                sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-                x-show="!dark"
-              ></iframe>
+          <div class="font-[sans-serif] text-gray-800 bg-gray-100 px-6 py-12">
+            <div class="grid lg:grid-cols-2 gap-8 max-lg:max-w-2xl mx-auto">
+              <div class="text-left">
+                <h2 class="text-4xl font-extrabold mb-6">
+                  Welcome to Our Website
+                </h2>
+                <p class="mb-4 text-sm">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
+                  aliquam, ipsum vel iaculis bibendum, justo turpis ullamcorper
+                  mauris, non aliquam nisi purus vel nisl. Integer efficitur
+                  turpis in bibendum tincidunt.
+                </p>
+                <p class="mb-4 text-sm">
+                  Nulla facilisi. Vestibulum fringilla leo et purus consectetur,
+                  vel tincidunt dolor rhoncus. In hac habitasse platea dictumst.
+                  Fusce vel sodales elit. Suspendisse potenti. Sed eget
+                  consequat nisi.
+                </p>
+                <p class="text-sm">
+                  consectetur adipiscing elit. Duis accumsan, nunc et tempus
+                  blandit, metus mi consectetur felis turpis vitae ligula. nunc
+                  et tempus blandit, metus mi consectetur felis turpis vitae
+                  ligula.
+                </p>
+                <div class="grid xl:grid-cols-3 sm:grid-cols-2 gap-8 mt-12">
+                  <div class="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      class="fill-green-500 shrink-0"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+                        data-original="#000000"
+                      ></path>
+                    </svg>
+                    <h6 class="text-base font-semibold ml-4">Customization</h6>
+                  </div>
+                  <div class="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      class="fill-green-500 shrink-0"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+                        data-original="#000000"
+                      ></path>
+                    </svg>
+                    <h6 class="text-base font-semibold ml-4">Security</h6>
+                  </div>
+                  <div class="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      class="fill-green-500 shrink-0"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+                        data-original="#000000"
+                      ></path>
+                    </svg>
+                    <h6 class="text-base font-semibold ml-4">Support</h6>
+                  </div>
+                  <div class="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      class="fill-green-500 shrink-0"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+                        data-original="#000000"
+                      ></path>
+                    </svg>
+                    <h6 class="text-base font-semibold ml-4">Performance</h6>
+                  </div>
+                  <div class="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      class="fill-green-500 shrink-0"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+                        data-original="#000000"
+                      ></path>
+                    </svg>
+                    <h6 class="text-base font-semibold ml-4">Global Reach</h6>
+                  </div>
+                  <div class="flex items-center">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      class="fill-green-500 shrink-0"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M9.707 19.121a.997.997 0 0 1-1.414 0l-5.646-5.647a1.5 1.5 0 0 1 0-2.121l.707-.707a1.5 1.5 0 0 1 2.121 0L9 14.171l9.525-9.525a1.5 1.5 0 0 1 2.121 0l.707.707a1.5 1.5 0 0 1 0 2.121z"
+                        data-original="#000000"
+                      ></path>
+                    </svg>
+                    <h6 class="text-base font-semibold ml-4">Communication</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="flex justify-center items-center">
+                <img
+                  src="https://readymadeui.com/management-img.webp"
+                  alt="Placeholder Image"
+                  class="rounded-lg object-cover w-full h-full"
+                />
+              </div>
             </div>
           </div>
         </div>

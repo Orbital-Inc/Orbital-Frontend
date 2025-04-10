@@ -99,11 +99,15 @@ async function RegisterAsync() {
   let password = formValues["password"];
   let confirmPassword = formValues["confirm-password"];
   let username = formValues["username"];
+  let name = formValues["name"];
   let errors = false;
 
   // Reset color and hide helper texts
   document
     .getElementById("username-helper")
+    .classList.add("hidden", "text-red-600");
+  document
+    .getElementById("name-helper")
     .classList.add("hidden", "text-red-600");
   document
     .getElementById("email-helper")
@@ -154,6 +158,18 @@ async function RegisterAsync() {
     document.getElementById("email-helper").classList.remove("hidden");
     errors = true;
   }
+
+  //check if name is valid
+  if (name != "") {
+    if (name.length < 6) {
+      // Update the helper text
+      document.getElementById("name-helper").textContent =
+        "Please enter a valid name";
+      document.getElementById("name-helper").classList.remove("hidden");
+      errors = true;
+    }
+  }
+
   //check if username is valid
   if (!validateUsername(username)) {
     // Update the helper text
@@ -241,6 +257,7 @@ async function RegisterAsync() {
   // Send our FormData object; HTTP headers are set automatically
   let data = JSON.stringify({
     emailAddress: email,
+    name: name,
     password: btoa(password),
     username: username,
     captchaCode: captcha,

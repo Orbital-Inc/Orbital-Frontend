@@ -4,7 +4,7 @@
   <nav
     x-show="isNavbarOpen || !isNavbarOpen"
     :class="{'min-h-screen': isNavbarOpen, '': !isNavbarOpen}"
-    class="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-md z-max transition-height duration-300"
+    class="fixed top-0 left-0 w-full bg-white dark:bg-gray-800 shadow-md z-40 duration-300"
   >
     <div class="container mx-auto px-6 py-3">
       <div>
@@ -12,7 +12,7 @@
           <div class="flex items-center text-gray-700 dark:text-gray-200">
             <!-- Desktop Menu Items -->
             <div class="hidden md:flex items-center space-x-6">
-              <div id="notLoggedInDiv" class="relative group ml-0-important">
+              <div id="notLoggedInDiv" class="relative group ml-0">
                 <a
                   href="https://orbitalsolutions.ca/login"
                   class="mr-2 text-gray-700 dark:text-gray-200 hover:text-gray-500 focus:outline-none"
@@ -24,10 +24,7 @@
                   ><i class="fas fa-user-plus pr-2"></i>Register</a
                 >
               </div>
-              <div
-                id="loggedInDiv"
-                class="hidden relative group ml-0-important"
-              >
+              <div id="loggedInDiv" class="hidden relative group ml-0">
                 <a
                   href="https://orbitalsolutions.ca/dashboard/"
                   class="mr-2 text-gray-700 dark:text-gray-200 hover:text-gray-500 focus:outline-none"
@@ -189,9 +186,9 @@
             <div class="flex items-center">
               <!-- Adjusted logo size -->
               <img
-                src="https://orbitalsolutions.ca/assets/img/orbital-logo-48.png"
+                src="https://orbitalsolutions.ca/assets/img/orbital-64.gif"
                 alt="Orbital Logo"
-                class="mr-2"
+                class="mr-2 h-12 w-12"
               />
               <a
                 class="text-lg font-bold text-gray-800 dark:text-gray-200"
@@ -605,7 +602,7 @@
           <!--Footer-->
 
           <div
-            class="fixed left-0 bottom-0 z-max flex items-center text-center justify-between w-full bg-primary-600 text-white"
+            class="fixed left-0 bottom-0 z-50 flex items-center text-center justify-between w-full bg-primary-600 text-white"
           >
             <iframe
               src="https://status.orbitalsolutions.ca/badge?theme=dark"

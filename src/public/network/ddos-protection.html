@@ -95,6 +95,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
+    <link rel="stylesheet" href="../assets/css/custom.css" />
 
     <link
       rel="stylesheet"
@@ -115,7 +116,7 @@
     :class="{'overflow-hidden': isNavbarOpen, 'overflow-y-auto': !isNavbarOpen}"
   >
     <div
-      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-10000 space-y-4"
+      class="fixed inset-0 flex flex-col w-full h-full items-center justify-center bg-gray-50 dark:bg-gray-900 z-50 space-y-4"
     >
       <div
         class="loader w-16 h-16 border-t-4 border-blue-500 border-solid rounded-full animate-spin"
@@ -123,7 +124,7 @@
       <p class="text-gray-700 dark:text-gray-200 text-lg">Loading...</p>
     </div>
 
-    <div class="bg-gray-50 dark:bg-gray-900 main-content blur-md">
+    <div class="bg-gray-50 dark:bg-gray-900 main-content">
       <div id="headerContainer"></div>
 
       <div id="modalContainer"></div>
@@ -141,6 +142,205 @@
               <h1 class="text-3xl font-bold text-gray-800 dark:text-gray-100">
                 DDoS Protection
               </h1>
+            </div>
+            <div
+              class="w-full md:flex flex-none justify-center md:flex-col items-center"
+            >
+              <div
+                class="flex-1 justify-center items-center h-full p-4 mx-auto overflow-hidden"
+              >
+                <div class="text-center my-6">
+                  <h1
+                    class="text-3xl font-bold text-gray-800 dark:text-gray-100"
+                  >
+                    Our Features
+                  </h1>
+                  <div
+                    class="mt-4 items-center justify-center md:flex flex-row"
+                  >
+                    <a
+                      class="flex items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                      href="https://orbitalsolutions.ca/products/remote-protection"
+                    >
+                      <div
+                        class="p-3 mr-4 text-purple-500 bg-purple-100 rounded-lg dark:text-purple-100 dark:bg-purple-500"
+                      >
+                        <i class="fas fa-shield-alt"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                          DDoS Protection
+                        </h4>
+                        <p class="text-gray-600 dark:text-gray-300">
+                          Layer 4 &amp; 7 DDoS protection via GRE &amp;
+                          Proxy/CDN.
+                        </p>
+                      </div>
+                    </a>
+                    <a
+                      class="flex items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                      href="https://orbitalsolutions.ca/products/remote-protection"
+                    >
+                      <div
+                        class="p-3 mr-4 text-purple-500 bg-purple-100 rounded-lg dark:text-purple-100 dark:bg-purple-500"
+                      >
+                        <i class="fas fa-globe"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                          Anycast Network
+                        </h4>
+                        <p class="text-gray-600 dark:text-gray-300">
+                          Leverage our anycast network for unparalleled security
+                          and performance.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                  <div
+                    class="mt-4 items-center justify-center md:flex flex-row"
+                  >
+                    <a
+                      class="flex items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                      href="https://orbitalsolutions.ca/products/vps"
+                    >
+                      <div
+                        class="p-3 mr-4 text-purple-500 bg-purple-100 rounded-lg dark:text-purple-100 dark:bg-purple-500"
+                      >
+                        <i class="fas fa-desktop"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                          Virtual Machines
+                        </h4>
+                        <p class="text-gray-600 dark:text-gray-300">
+                          Secure virtual machines with built-in DDoS protection.
+                        </p>
+                      </div>
+                    </a>
+                    <a
+                      class="flex items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                      href="https://orbitalsolutions.ca/products/dedicated"
+                    >
+                      <div
+                        class="p-3 mr-4 text-purple-500 bg-purple-100 rounded-lg dark:text-purple-100 dark:bg-purple-500"
+                      >
+                        <i class="fas fa-server"></i>
+                      </div>
+                      <div>
+                        <h4
+                          class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                        >
+                          Dedicated Machines
+                        </h4>
+                        <p class="text-gray-600 dark:text-gray-300">
+                          Secure dedicated machines with built-in DDoS
+                          protection.
+                        </p>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div class="text-center my-6">
+                  <h1
+                    class="text-3xl font-bold text-gray-800 dark:text-gray-100"
+                  >
+                    Global Network Capabilities
+                  </h1>
+                  <div
+                    class="mt-4 items-center justify-center md:flex flex-row"
+                  >
+                    <div
+                      class="items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                    >
+                      <h3
+                        class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                      >
+                        Network Capacity with DataPacket
+                      </h3>
+
+                      <p class="text-gray-600 dark:text-gray-300">
+                        Our partnership with
+                        <strong>DataPacket</strong> enhances our network with a
+                        robust capacity of <strong>240Gbps</strong>. This
+                        ensures our clients benefit from reliable, high-speed
+                        connectivity, capable of supporting substantial traffic
+                        volumes for enhanced performance and security.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mt-6">
+                  <h1
+                    class="text-3xl font-bold text-gray-800 dark:text-gray-100"
+                  >
+                    Our Infrastructure
+                  </h1>
+                  <div
+                    class="mt-4 items-center justify-center md:flex flex-row"
+                  >
+                    <div
+                      class="items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                    >
+                      <h3
+                        class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                      >
+                        Virtual Machines
+                      </h3>
+
+                      <p class="text-gray-600 dark:text-gray-300">
+                        Powered by next-gen processors and high-speed SSDs, our
+                        VMs offer scalability and performance for all your
+                        applications. Features include 99.99% uptime, a wide
+                        range of OS options, and built-in DDoS protection.
+                      </p>
+                    </div>
+                    <div
+                      class="items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                    >
+                      <h3
+                        class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                      >
+                        Dedicated Machines
+                      </h3>
+
+                      <p class="text-gray-600 dark:text-gray-300">
+                        Our dedicated servers provide the ultimate in
+                        performance and security for your most demanding
+                        applications. Equipped with the latest hardware, full
+                        root access, and exclusive resources, we ensure your
+                        projects run smoothly.
+                      </p>
+                    </div>
+                  </div>
+                  <div
+                    class="mt-4 items-center justify-center md:flex flex-row"
+                  >
+                    <div
+                      class="items-center p-4 m-2 bg-white rounded-lg shadow-md dark:bg-gray-800"
+                    >
+                      <h3
+                        class="text-lg font-semibold text-gray-800 dark:text-gray-100"
+                      >
+                        Our ASN
+                      </h3>
+
+                      <p class="text-gray-600 dark:text-gray-300">
+                        We operate under <strong>ASN 397441</strong>, enabling
+                        efficient management of internet routing. This ASN
+                        ensures optimal performance and reliability, maintaining
+                        the highest quality of service for our clients.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
